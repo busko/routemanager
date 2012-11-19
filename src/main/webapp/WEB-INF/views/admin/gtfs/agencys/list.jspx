@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+    Copyright (c) 2012 Busko Trust
+
+        * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+        * use this file except in compliance with the License. You may obtain a copy of
+        * the License at
+        *
+        * http://www.apache.org/licenses/LICENSE-2.0
+        *
+        * Unless required by applicable law or agreed to in writing, software
+        * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+        * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+        * License for the specific language governing permissions and limitations under
+        * the License.
+-->
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_busko_routemanager_model_transit_gtfs_Agency" items="${agencys}" z="ECvlKuSjnCdYG8bRT6utzAsC+Ns=">
+        <table:table data="${agencys}" id="l_org_busko_routemanager_model_transit_gtfs_Agency" path="/admin/gtfs/agencys" z="CNVy3SSG7Z2HjzaXbonYov+Ihz0=">
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_Agency_uniqueEncoding" property="uniqueEncoding" z="X8irKRuTaZHVq2WppfNf922ubHQ="/>
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_Agency_agencyId" property="agencyId" render="false" z="user-managed"/>
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_Agency_agencyName" property="agencyName" z="gcbyp4tJ8mlPacEKulAe4ue0VgA="/>
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_Agency_agencyUrl" property="agencyUrl" link="true" z="user-managed"/>
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_Agency_agencyTimezone" property="agencyTimezone" render="false" z="user-managed"/>
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_Agency_agencyPhone" property="agencyPhone" z="HmPvhJPwxSbmYKxvFH4Qqgot80Q="/>
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_Agency_agencyLang" property="agencyLang" render="false" z="user-managed"/>
+        </table:table>
+    </page:list>
+</div>

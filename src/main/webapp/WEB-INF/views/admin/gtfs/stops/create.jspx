@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+    Copyright (c) 2012 Busko Trust
+
+        * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+        * use this file except in compliance with the License. You may obtain a copy of
+        * the License at
+        *
+        * http://www.apache.org/licenses/LICENSE-2.0
+        *
+        * Unless required by applicable law or agreed to in writing, software
+        * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+        * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+        * License for the specific language governing permissions and limitations under
+        * the License.
+-->
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_org_busko_routemanager_model_transit_gtfs_Stop" modelAttribute="stop" path="/admin/gtfs/stops" render="${empty dependencies}" z="3RDUNb3MqViwIh+qelPPglhDfdE=">
+        <field:input field="stopId" id="c_org_busko_routemanager_model_transit_gtfs_Stop_stopId" max="20" required="true" z="42DdDic5IS8gzoZuCzZjUrrXBE8="/>
+        <field:textarea field="stopName" id="c_org_busko_routemanager_model_transit_gtfs_Stop_stopName" required="true" z="iUD57TNP3xmkBUYw9legGmKKwew="/>
+        <field:textarea field="stopDesc" id="c_org_busko_routemanager_model_transit_gtfs_Stop_stopDesc" z="+Up0OaS7+jaMPVncaTxveJLhDcA="/>
+        <field:input field="stopLat" id="c_org_busko_routemanager_model_transit_gtfs_Stop_stopLat" max="20" required="true" z="Bfn9DYagFJFWQl0Z8GXIBM8uuYI="/>
+        <field:input field="stopLon" id="c_org_busko_routemanager_model_transit_gtfs_Stop_stopLon" max="20" required="true" z="KUMmGFyA8ZsFibDG7RdvTWicNcI="/>
+        <field:simple field="stopTimes" id="c_org_busko_routemanager_model_transit_gtfs_Stop_stopTimes" messageCode="entity_reference_not_managed" messageCodeAttribute="Stop Time" z="z267qhyd4mEQcrFoHnYpTKCOLp0="/>
+        <field:select field="agency" id="c_org_busko_routemanager_model_transit_gtfs_Stop_agency" itemValue="id" items="${agencys}" path="/admin/gtfs/agencys" z="ppPS1yqrHXeeYLGn2PLIEZcI6Fk="/>
+        <field:select field="route" id="c_org_busko_routemanager_model_transit_gtfs_Stop_route" itemValue="id" items="${routes}" path="/admin/gtfs/routes" z="+6gTrAZfoOc2P1HTGK1lwtO4Cb8="/>
+        <field:checkbox field="explicitStopId" id="c_org_busko_routemanager_model_transit_gtfs_Stop_explicitStopId" z="ep/X5J80U1CAbK3ow0awhe05md4="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_org_busko_routemanager_model_transit_gtfs_Stop" render="${not empty dependencies}" z="1Zv1XygCX2U04j8efsJnyQrEmR0="/>
+</div>

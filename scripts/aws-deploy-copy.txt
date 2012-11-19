@@ -1,0 +1,5 @@
+sudo unzip routemanager-0.1.0.BUILD-SNAPSHOT.zip -d ./routemanager
+sudo /etc/init.d/tomcat6 stop
+sudo cp -r /var/lib/tomcat6/webapps/routemanager ./routemanager-bk
+sudo cp -r ./routemanager /var/lib/tomcat6/webapps
+sudo /etc/init.d/tomcat6 start

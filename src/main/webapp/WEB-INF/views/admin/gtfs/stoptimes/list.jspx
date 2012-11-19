@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+    Copyright (c) 2012 Busko Trust
+
+        * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+        * use this file except in compliance with the License. You may obtain a copy of
+        * the License at
+        *
+        * http://www.apache.org/licenses/LICENSE-2.0
+        *
+        * Unless required by applicable law or agreed to in writing, software
+        * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+        * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+        * License for the specific language governing permissions and limitations under
+        * the License.
+-->
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_busko_routemanager_model_transit_gtfs_StopTime" items="${stoptimes}" z="eWia6zm7S+CA93Dkgu8wZgIvDiQ=">
+        <table:table data="${stoptimes}" id="l_org_busko_routemanager_model_transit_gtfs_StopTime" path="/admin/gtfs/stoptimes" z="EJp8+u2CsH4aknRYbtQA3m0Wuos=">
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_StopTime_arrivalTime" property="arrivalTime" z="DbdkKOrJ+XcUfydzPQwrXIqt2GY="/>
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_StopTime_departureTime" property="departureTime" z="i4/1bkg8V0kG+AswCyZcKA7X0Kc="/>
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_StopTime_stopSequence" property="stopSequence" z="SZHfrcle7vAMgVKTprfmCB7RUnw="/>
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_StopTime_trip" property="trip" z="cZO9bdBSLxdPNlegE0HGuwCHiTw="/>
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_StopTime_stop" property="stop" z="CPhvzMilMrr5+bU3UUiE/vShMr8="/>
+        </table:table>
+    </page:list>
+</div>

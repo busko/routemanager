@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+    Copyright (c) 2012 Busko Trust
+
+        * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+        * use this file except in compliance with the License. You may obtain a copy of
+        * the License at
+        *
+        * http://www.apache.org/licenses/LICENSE-2.0
+        *
+        * Unless required by applicable law or agreed to in writing, software
+        * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+        * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+        * License for the specific language governing permissions and limitations under
+        * the License.
+-->
+
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <spring:message code="busko_community_withlink" htmlEscape="false" var="busko_community_withlink"/>
+    <form:create id="fc_org_busko_routemanager_model_transit_community_RouteOutline" modelAttribute="routeOutline" multipart="true" path="/admin/community/routeoutlines" render="${empty dependencies}" z="user-managed">
+        <div class="twincolumnblock">
+            <field:input field="username" id="c_org_busko_routemanager_model_transit_community_RouteOutline_username" z="user-managed"/>
+            <field:input field="routeName" id="c_org_busko_routemanager_model_transit_community_RouteOutline_routeName" required="true" z="user-managed"/>
+            <field:textarea field="routeDescription" id="c_org_busko_routemanager_model_transit_community_RouteOutline_routeDescription" z="c6kdpOBEgnAc8Av8jIp7lAfpxLo="/>
+            <field:input field="fileContent" id="c_org_busko_routemanager_model_transit_community_RouteOutline_fileContent" render="false" z="user-managed"/>
+            <field:datetime dateTimePattern="${routeOutline_submitteddatetime_date_format}" field="submittedDateTime" id="c_org_busko_routemanager_model_transit_community_RouteOutline_submittedDateTime" z="sVKBQQ5VZqBTe+F/0TA6SgS9WMc="/>
+            <field:input field="route" id="c_org_busko_routemanager_model_transit_community_RouteOutline_route" render="false" z="user-managed"/>
+            <field:input field="fileData" id="c_org_busko_routemanager_model_transit_community_RouteOutline_fileData" render="false" z="user-managed"/>
+            <div id="_c_org_busko_routemanager_model_transit_community_RouteOutline_fileData_id">
+                <label for="_fileData_id">File Data:</label>
+                <input id="_fileData_id" name="fileData" type="file"/>
+            </div>
+            <br/>
+            <field:select field="agency" id="c_org_busko_routemanager_model_transit_community_RouteOutline_agency" itemValue="id" items="${agencys}" path="/admin/gtfs/agencys" z="user-managed"/>
+        </div>
+        <div class="twincolumnblock">
+            A route outline can be generated using any tool that can produce a .GPX Track (<a href="http://www.topografix.com/gpx.asp" target="_blank">GPS Exchange Format</a>) file.<br/>
+            <br/>
+            At ${busko_community_withlink} we have found the site <a href="http://ridewithgps.com/" target="_blank">Ride With GPS</a> to be really easy to use to create a route outline.
+            We have also found Cullen King at Ride With GPS really helpful - thanks Cullen. So to create a route outline:<br/>
+            <ul>
+                <li>
+                    <a href="https://ridewithgps.com/signup/free" target="_blank">Sign up for a free Ride With GPS account</a>
+                </li>
+                <li>Once you have an account log in and choose 'Add Content - Map Ride'</li>
+                <li>Move the map so that you can clearly see the start of the route you want to outline</li>
+                <li>Click where the first bus stop is (you can use the 'Undo' button if you make a mistake)</li>
+                <li>Click along the road, trying to click on the left hand side of the road, where the bus route goes (again use the 'Undo' button if the system follows the wrong road)</li>
+            </ul>
+            You will quickly work out how it works. Simply follow the route around the roads until you get to the last stop, you are nearly done!
+            Now you need to save the route outline and download the .GPX file:
+            <ul>
+                <li>Click the 'Save Route' button (bottom right hand corner)</li>
+                <li>Enter the name for the route - as it is named by your local bus operator</li>
+                <li>Please add a description that includes the town name and any other information that may be of interest about the bus route</li>
+                <li>Click 'Save' and then choose the 'View your route here' link</li>
+                <li>Click the 'GPX Track (.gpx)' link (right hand side menu)</li>
+            </ul>
+            The .GPX file that is download can now be uploaded - please use the form on this page to do this.
+            Thanks for uploading a route outline for the ${busko_community_withlink} community.
+        </div>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_org_busko_routemanager_model_transit_community_RouteOutline" render="${not empty dependencies}" z="dwarwOgQ4T0osj1Qlrm3QqprW6o="/>
+</div>

@@ -1,0 +1,104 @@
+<div xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+        <!--
+            Copyright (c) 2012 Busko Trust
+
+                * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+                * use this file except in compliance with the License. You may obtain a copy of
+                * the License at
+                *
+                * http://www.apache.org/licenses/LICENSE-2.0
+                *
+                * Unless required by applicable law or agreed to in writing, software
+                * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+                * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+                * License for the specific language governing permissions and limitations under
+                * the License.
+        -->
+     xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+  <jsp:directive.page contentType="text/html;charset=UTF-8" />
+  <jsp:output omit-xml-declaration="yes" />
+  <spring:message var="app_name" code="application_name" htmlEscape="false" />
+  <spring:message var="title" code="welcome_titlepane" arguments="${app_name}" htmlEscape="false" />
+  <util:panel id="title" title="${title}">
+<!--
+    <h3>
+      <spring:message code="welcome_h3" arguments="${app_name}" />
+    </h3>
+    <p>
+      <spring:message code="welcome_text" />
+    </p>
+-->
+    <spring:message code="onebusaway_simulation" var="onebusaway_simulation" htmlEscape="false" />
+    <spring:message code="busko_community_withlink" var="busko_community_withlink" htmlEscape="false"/>
+    <spring:url value="/routeplotter" var="routePlotterApkUrl"/>
+    <spring:url value="/admin/community/routeoutlines" var="create_url">
+      <spring:param name="form"/>
+    </spring:url>
+    <h3>Welcome to the Busko Route Manager</h3>
+    <p>The goal of ${busko_community_withlink} is
+        to allow the travelling public to plot and track their own local bus routes.</p>
+    <p>Route and schedule data entered into the Route Manager will then be uploaded to the
+        <a href="${onebusaway_simulation}/#66" target="_blank">Busko OneBusAway Demonstration</a> site
+        and, once verified by the community, a project to provide real-time tracking for the route will be launched.</p>
+    <p>Please feel free to get in <a href="http://www.buskocommunity.org/contact" target="_blank">contact</a> about any aspect of the project, but for now...</p>
+    <h4>Here is how you can help</h4>
+  </util:panel>
+  <script type="text/javascript">dojo.require('dijit.layout.ContentPane');dojo.require('dijit.layout.TabContainer');</script>
+  <div id="tabContainer" style="height: 580px; width:980px;">
+    <div id="tab1" title="Plot a route">
+      <p>This web site is step 1 of many on the way to achieving this goal. If you want to help:</p>
+    <ul>
+      <li>Get hold of an Android phone running Android 2.2 or above (an iPhone plotter application will be developed)</li>
+      <li>Temporarily allow the 'Unknown sources' option to allow installation of non-Market apps.
+          To do this find the option under the 'Applications' or 'Security' sub menu of the 'Settings'
+      </li>
+      <li>Go to this page on your phone - <a href="http://www.buskocommunity.org/routemanager">http://www.buskocommunity.org/routemanager</a></li>
+      <li>On your phone download the <a href="${routePlotterApkUrl}">Route Plotter application</a></li>
+      <li>Once the download has completed select the RoutePlotter.apk download file</li>
+      <li>Confirm the install request - we need your GPS location, access to the SD card to store positions and the Internet to upload the route</li>
+      <li>Get plotting!</li>
+    </ul>
+    <p>This is the very first release of the Route Plotter tool. We will get on the Play Store (and App Store) to reduce
+        the need for many of the steps outlined here. But this tool will allow you to plot a local bus route and upload
+        it to the Busko Route Manager. From here we encode the route and allow the schedule information to be
+        entered. Then the finished route is uploaded to <a href="${onebusaway_simulation}/#66" target="_blank">OneBusAway</a> where it can be used by anyone!</p>
+    <p>But how do you plot a route?</p>
+    <ul>
+      <li>Open the Route Plotter application</li>
+      <li>If this is the first time you have used the application select the 'Menu' - 'Preferences' option and enter your 'Username' (just you name please)</li>
+      <li>Select 'Record Route' when you are waiting for a bus on a route you want to track</li>
+      <li>Enter the 'Route Number' (eg 66) and 'Route Description' (eg Roslyn-Uni)</li>
+      <li>Press 'Start Recording' (still at the bus stop) and wait for the GPS tracking to start</li>
+      <li>Once the 'Mark' button (the big one) is available you are ready to plot a route - just wait for the bus!</li>
+      <li>When you get on the bus press 'Mark' for the first time</li>
+      <li>Watch for bus stops and press 'Mark' each time you pass or stop at one</li>
+      <li>When you get off the bus press 'Mark' one last time</li>
+      <li>Select 'Exit'</li>
+      <li>On the main page select 'Upload 1 Route(s)' (you can do this when you are on a WiFi network if you wish although the route file is not typically very large)</li>
+      <li>Thank you very much - you have plotted a route!</li>
+    </ul>
+    <p>We will be working on making the Route Plotter simplier to use. In the mean time thank you for making the effort to plot a route at
+        this early stage in the process. Even at this stage each route that is captured an made available online may help someone make use
+        of the public transport system.
+    </p>
+    </div>
+    <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : 'tab1', widgetType : 'dijit.layout.ContentPane', widgetAttrs : {title: 'Plot a route', selected: true}}));</script>
+    <div id="tab2" title="Upload a route outline">
+      <p>A route outline details the rough path of a bus route.
+            Generating a route outline and uploading it to the Busko Route Manager helps let the team know about a bus route that needs tracking.</p>
+      <p>Once the outline is checked for accuracy we will process it and present the information in our <a href="${onebusaway_simulation}" target="_blank">OneBusAway simulation</a>.</p>
+      <p>So please read our guide to <a href="${fn:escapeXml(create_url)}">creating a route outline</a> and start getting your local bus routes online.</p>
+    </div>
+    <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : 'tab2', widgetType : 'dijit.layout.ContentPane', widgetAttrs : {title: 'Upload a route outline', selected: true}}));</script>
+  </div>
+  <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : 'tabContainer', widgetType : 'dijit.layout.TabContainer', widgetAttrs : {title: 'contenedor', style: 'height: 100%'}}));</script>
+  <script type="text/javascript">
+    dojo.addOnLoad(function(){
+      var tabs = dijit.byId("tabContainer");
+      var pane = dijit.byId("_title_title_id");
+      tabs.placeAt(pane.containerNode, "last");
+      tabs.startup();
+      tabs.resize();
+    });
+  </script>
+</div>

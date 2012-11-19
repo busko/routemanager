@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+    Copyright (c) 2012 Busko Trust
+
+        * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+        * use this file except in compliance with the License. You may obtain a copy of
+        * the License at
+        *
+        * http://www.apache.org/licenses/LICENSE-2.0
+        *
+        * Unless required by applicable law or agreed to in writing, software
+        * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+        * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+        * License for the specific language governing permissions and limitations under
+        * the License.
+-->
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_busko_routemanager_model_transit_gtfs_Stop" items="${stops}" z="/Q79y6LhdCVjTxJRieZOdJc1AIM=">
+        <table:table data="${stops}" id="l_org_busko_routemanager_model_transit_gtfs_Stop" path="/admin/gtfs/stops" z="u6GiZqkwGBWKBXAmvyuRvGn4naw=">
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_Stop_stopId" property="fullStopId" z="user-managed"/>
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_Stop_stopName" property="stopName" z="kRhN46c0oSL8jbFnc3CQH96+wl0="/>
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_Stop_stopLat" property="stopLat" z="wtj60mNvMN24Lc3cBcrCi2/l2zI="/>
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_Stop_stopLon" property="stopLon" z="cU6wfdbhePN1M+1/am0eCss0ebE="/>
+        </table:table>
+    </page:list>
+</div>

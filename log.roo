@@ -1,0 +1,119 @@
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-09-09 21:41:54
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-09-09 21:42:03
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-09-09 21:43:34
+help
+project --topLevelPackage org.busko.routemanager
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-09-09 21:44:45
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-09-09 21:45:06
+persistence setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT 
+entity jpa --class ~.model.transit.Country
+entity jpa --class ~.model.transit.Location
+entity jpa --class ~.model.transit.Route
+entity jpa --class ~.model.transit.Region
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-09-09 22:40:17
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-09-09 23:47:29
+focus --class ~.model.transit.Country
+field string --fieldName agencyId --notNull --sizeMin 3 --sizeMax 3
+field string --fieldName agencyName --notNull --sizeMax 256
+field set --fieldName regions --type ~.model.transit.Region
+focus --class ~.model.transit.Region
+field string --fieldName agencyName --notNull --sizeMax 256
+focus --class ~.model.transit.Location
+field string --fieldName agencyName --notNull --sizeMax 256
+field string --fieldName description --sizeMax 1000
+focus --class ~.model.transit.Route
+field string --fieldName agencyId --notNull --sizeMax 20
+field string --fieldName shortName --notNull --sizeMax 30
+field string --fieldName longName --notNull --sizeMax 100
+field string --fieldName description --notNull --sizeMax 256
+entity jpa --class ~.model.transit.Agency
+field string --fieldName agencyId --notNull --sizeMax 30
+field string --fieldName agencyName --notNull --sizeMax 256
+field string --fieldName agencyUrl --notNull --sizeMax 256
+field string --fieldName agencyPhone --sizeMax 20
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-09-09 23:59:12
+entity jpa --class ~.model.transit.gtfs.Calendar
+field boolean --fieldName monday --notNull
+focus --class ~.model.transit.gtfs.Route
+field number --type int --fieldName routeType --notNull
+entity jpa --class ~.model.transit.community.RouteSubmission
+entity jpa --class ~.model.transit.gtfs.Trip
+entity jpa --class ~.model.transit.gtfs.StopTimes
+entity jpa --class ~.model.transit.gtfs.StopTime
+entity jpa --class ~.model.transit.gtfs.Shape
+test integration --entity ~.model.transit.gtfs.Agency
+help
+test stub --class ~.model.transit.Country
+web mvc setup
+web mvc all --package ~.model.transit.gtfs
+web mvc scaffold --class ~.web.transit.gtfs.AgencyController --backingType ~.model.transit.gtfs.Agency
+web mvc scaffold --class ~.web.transit.gtfs.AgencyController --backingType ~.model.transit.gtfs.Agency
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-09-10 23:10:48
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-09-10 23:12:02
+poll now
+web mvc scaffold --class ~.web.transit.gtfs.AgencyController --backingType ~.model.transit.gtfs.Agency
+web mvc scaffold --class ~.web.transit.gtfs.AgencyController --backingType ~.model.transit.gtfs.Agency
+web mvc scaffold --class ~.web.transit.gtfs.AgencyController --backingType ~.model.transit.gtfs.Agency
+web mvc scaffold --backingType ~.model.transit.gtfs.Agency --class ~.web.transit.gtfs.AgencyController
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-09-10 23:28:11
+poll now
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-09-11 00:43:33
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-09-11 00:45:54
+persistence setup --database MYSQL --provider HIBERNATE
+test integration --entity ~.model.transit.gtfs.Agency
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-09-13 23:51:25
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-09-16 21:51:23
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-09-19 22:31:58
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-09-24 04:14:16
+// [failed] finder list --class ~.model.gtfs.Agency
+help
+system properties
+// [failed] finder list --class org.busko.routemanager.model.gtfs.Agency
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-09-24 05:17:12
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-09-24 05:17:56
+help package
+help
+// [failed] finder list --class ~.model.gtfs.Agency
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-09-24 05:21:32
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-09-24 05:21:50
+// [failed] finder list --class ~.model.gtfs.Agency
+finder list --class ~.model.transit.gtfs.Agency
+finder add --finderName findAgencysByAgencyIdEquals
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-09-25 10:23:42
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-29 21:56:20
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-29 23:03:47
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-05 21:03:52
+poll now
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-06 00:59:14
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-16 20:24:17
+poll now
+help finder
+finder list --class ~.model.transit.gtfs.Calendar
+finder add --class ~.model.transit.gtfs.Calendar --finderName findCalendarsByServiceIdEquals
+finder list --class ~.model.transit.community.RouteOutline
+finder add --class ~.model.transit.community.RouteOutline --finderName findRouteOutlinesByRoute
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-16 22:34:21
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-17 20:48:12
+poll now
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-17 21:04:22
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-17 22:49:02
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-18 07:59:39
+poll now
+help
+web mvc scaffold --class ~.web.admin.gtfs.TripController --backingType ~.model.transit.gtfs.Trip
+poll now

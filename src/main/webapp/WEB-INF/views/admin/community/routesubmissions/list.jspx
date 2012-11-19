@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_busko_routemanager_model_transit_community_RouteSubmission" items="${routesubmissions}" z="t0h05OnqXZz5ab6K2PEJ2uV5nKc=">
+        <table:table data="${routesubmissions}" id="l_org_busko_routemanager_model_transit_community_RouteSubmission" path="/admin/community/routesubmissions" z="u04LLFtxMHh3uAo4qT/kXGixGe0=">
+            <table:column id="c_org_busko_routemanager_model_transit_community_RouteSubmission_username" property="username" z="+aqESOrahh+f30LdMghZrKv2vJ4="/>
+            <table:column id="c_org_busko_routemanager_model_transit_community_RouteSubmission_fileContent" property="fileContent" z="eeu/Z+qoACjgY49bZBOJnHfl5jI="/>
+            <table:column date="true" dateTimePattern="${routeSubmission_submitteddatetime_date_format}" id="c_org_busko_routemanager_model_transit_community_RouteSubmission_submittedDateTime" property="submittedDateTime" z="EHFsvZFCs7K+WemOilgD4Btazjk="/>
+            <table:column id="c_org_busko_routemanager_model_transit_community_RouteSubmission_route" property="route" z="pKSVFEEBFLdyH3Wz7KBfLGMOj7w="/>
+            <table:column id="c_org_busko_routemanager_model_transit_community_RouteSubmission_fileData" property="fileData" z="BOg/+JdOOYRTrzEr+RD782K/oiA="/>
+        </table:table>
+    </page:list>
+</div>

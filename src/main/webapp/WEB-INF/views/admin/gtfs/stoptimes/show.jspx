@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+    Copyright (c) 2012 Busko Trust
+
+        * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+        * use this file except in compliance with the License. You may obtain a copy of
+        * the License at
+        *
+        * http://www.apache.org/licenses/LICENSE-2.0
+        *
+        * Unless required by applicable law or agreed to in writing, software
+        * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+        * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+        * License for the specific language governing permissions and limitations under
+        * the License.
+-->
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_busko_routemanager_model_transit_gtfs_StopTime" object="${stoptime}" path="/admin/gtfs/stoptimes" z="mb4WfWA0LymhuD8ZzZfwULywO04=">
+        <field:display field="arrivalTime" id="s_org_busko_routemanager_model_transit_gtfs_StopTime_arrivalTime" object="${stoptime}" z="mkFDTM1aUgSRByJTg8xmOEkdbI0="/>
+        <field:display field="departureTime" id="s_org_busko_routemanager_model_transit_gtfs_StopTime_departureTime" object="${stoptime}" z="tBeLj6rv/ONF5TOAizSmZiPNYQU="/>
+        <field:display field="stopSequence" id="s_org_busko_routemanager_model_transit_gtfs_StopTime_stopSequence" object="${stoptime}" z="NvEEa3gCE6FN8uhNxRgAIx6KjQo="/>
+        <field:display field="trip" id="s_org_busko_routemanager_model_transit_gtfs_StopTime_trip" object="${stoptime}" z="vjya+JYFn3IpmaCTuwT7BsRiCGY="/>
+        <field:display field="stop" id="s_org_busko_routemanager_model_transit_gtfs_StopTime_stop" object="${stoptime}" z="wrJ5tmZQlmTin3W4lfSXknrt5S4="/>
+    </page:show>
+</div>

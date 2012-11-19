@@ -1,0 +1,41 @@
+# Stop Tomcat
+sudo /etc/init.d/tomcat6 stop
+
+# Copy over all the new files leaving the persistence.xml and database.properties unchanged
+cd /home/ubuntu/routemanager
+sudo cp -R images /var/lib/tomcat6/webapps/routemanager
+sudo cp -R META-INF /var/lib/tomcat6/webapps/routemanager
+sudo cp -R styles /var/lib/tomcat6/webapps/routemanager
+sudo cp -R WEB-INF /var/lib/tomcat6/webapps/routemanager
+
+# Clear the database (or run update script)
+mysql -u buskormuser -p
+use buskorm;
+drop table stop_time;
+drop table stop;
+drop table shape;
+drop table trip;
+drop table route_outline;
+drop table route_submission;
+drop table route;
+drop table agency;
+drop table calendar;
+drop table region;
+drop table country;
+exit
+
+# Set the persistence.xml to 'create'
+sudo vi /var/lib/tomcat6/webapps/routemanager/WEB-INF/classes/META-INF/persistence.xml
+
+# Restart Tomcat and check things started
+sudo /etc/init.d/tomcat6 start
+vi /var/log/tomcat6/catalina.out
+
+# Stop Tomcat
+sudo /etc/init.d/tomcat6 stop
+
+# Set the persistence.xml to turn off 'create'
+sudo vi /var/lib/tomcat6/webapps/routemanager/WEB-INF/classes/META-INF/persistence.xml
+
+# Restart Tomcat
+sudo /etc/init.d/tomcat6 start

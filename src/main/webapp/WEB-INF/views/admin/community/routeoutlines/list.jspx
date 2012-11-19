@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+    Copyright (c) 2012 Busko Trust
+
+        * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+        * use this file except in compliance with the License. You may obtain a copy of
+        * the License at
+        *
+        * http://www.apache.org/licenses/LICENSE-2.0
+        *
+        * Unless required by applicable law or agreed to in writing, software
+        * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+        * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+        * License for the specific language governing permissions and limitations under
+        * the License.
+-->
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:spring="http://www.springframework.org/tags" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <spring:message code="onebusaway_simulation" var="onebusaway_simulation"/>
+    <spring:url value="/admin/community/routeoutlines" var="create_url">
+        <spring:param name="form"/>
+    </spring:url>
+    <c:choose>
+        <c:when test="${not empty routeoutlines}">
+            <page:list id="pl_org_busko_routemanager_model_transit_community_RouteOutline" items="${routeoutlines}" z="R0wakbW+10HliRAOmCirEFn8gjE=">
+                <div>
+                    A route outline details the rough path of a bus route.
+                    Generating a route outline and uploading it to the Busko Route Manager helps let the team know about a bus route that needs tracking.<br/>
+                    Once the outline is checked for accuracy we will process it and present the information in our <a href="${onebusaway_simulation}" target="_blank">OneBusAway simulation</a>.<br/>
+                    <br/>
+                    So please read our guide to <a href="${fn:escapeXml(create_url)}">creating a route outline</a> and start getting your local bus routes online.<br/>
+                    <br/>
+                </div>
+                <table:table data="${routeoutlines}" id="l_org_busko_routemanager_model_transit_community_RouteOutline" path="/admin/community/routeoutlines" z="TXTjRGm5GIvbrZc5hBy0j6T76Xs=">
+                    <table:column id="c_org_busko_routemanager_model_transit_community_RouteOutline_username" property="username" z="7ZivrDF2hUzkmgm3q6QAH8dQv4k="/>
+                    <table:column id="c_org_busko_routemanager_model_transit_community_RouteOutline_routeName" property="routeName" z="QnXfkwbWQqcMjzyW1MOf/XEIbsU="/>
+                    <table:column id="c_org_busko_routemanager_model_transit_community_RouteOutline_routeDescription" property="routeDescription" render="false" z="user-managed"/>
+                    <table:column id="c_org_busko_routemanager_model_transit_community_RouteOutline_fileContent" property="fileContent" render="false" z="user-managed"/>
+                    <table:column date="true" dateTimePattern="${routeOutline_submitteddatetime_date_format}" id="c_org_busko_routemanager_model_transit_community_RouteOutline_submittedDateTime" property="submittedDateTime" z="cEmoo8nKuB9sg4NMWaXOrM6xMtc="/>
+                    <table:column id="c_org_busko_routemanager_model_transit_community_RouteOutline_agency" property="agency" z="vXUb86ZBb2sD60OK6Wrl/PLOLJ8="/>
+                    <table:column id="c_org_busko_routemanager_model_transit_community_RouteOutline_route" property="route" z="vXUb86ZBb2sD60OK6Wrl/PLOLJ8="/>
+                </table:table>
+            </page:list>
+        </c:when>
+        <c:otherwise>
+            <div>
+                A route outline details the rough path of a bus route.
+                Generating a route outline and uploading it to the Busko Route Manager helps let the team know about a bus route that needs tracking.<br/>
+                Once the outline is checked for accuracy we will process it and present the information in our <a href="${onebusaway_simulation}" target="_blank">OneBusAway simulation</a>.<br/>
+                <br/>
+                So please read our guide to <a href="${fn:escapeXml(create_url)}">creating a route outline</a> and start getting your local bus routes online.
+            </div>
+        </c:otherwise>
+    </c:choose>
+</div>
