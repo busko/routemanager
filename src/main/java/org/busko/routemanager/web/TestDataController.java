@@ -62,6 +62,16 @@ public class TestDataController {
         theBlenheimBus.setAgencyLang("en");
         theBlenheimBus.setUniqueEncoding("20");
         theBlenheimBus.persist();
+
+        Agency theBayBus = new Agency();
+        theBayBus.setAgencyId("theBayBus");
+        theBayBus.setAgencyName("BayBus");
+        theBayBus.setAgencyUrl("http://www.baybus.co.nz/");
+        theBayBus.setAgencyTimezone("Pacific/Auckland");
+        theBayBus.setAgencyPhone("+643 864 4669");
+        theBayBus.setAgencyLang("en");
+        theBayBus.setUniqueEncoding("30");
+        theBayBus.persist();
     }
 
     private void initGtfsCalendarData() {

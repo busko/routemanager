@@ -384,7 +384,7 @@ GPXParser.prototype.AddWaypointsToMap = function ()
     function addTrip() {
         var incrementValue = parseInt(document.getElementById("increment").value);
         if (isNaN(incrementValue)) {
-            alert("Please enter a numerical increment to adjust the last trip times by");
+            alert("Please enter a number that can adjust the latest trip time.");
             return;
         }
 
@@ -401,6 +401,10 @@ GPXParser.prototype.AddWaypointsToMap = function ()
 
             // This should be a time represented HH:mm
             var currentTripValue = row.cells[1 + tripNumber].firstChild.value;
+            if (currentTripValue.charAt(1) == ':') {
+                currentTripValue = '0'+ currentTripValue;
+                row.cells[1 + tripNumber].firstChild.value = currentTripValue;
+            }
             if (currentTripValue.charAt(2) != ':') continue;
             var hours = getInt(currentTripValue.substr(0, 2));
             var minutes = getInt(currentTripValue.substr(3, 2)) + incrementValue;

@@ -23,6 +23,6 @@ public class CountryTest extends HSQLTestBase {
 
     @Test
     public void getCode() {
-//        Assert.assertTrue(Country.countCountrys() == 0);
+        Assert.assertTrue(Country.countCountrys() == 0);
     }
 }

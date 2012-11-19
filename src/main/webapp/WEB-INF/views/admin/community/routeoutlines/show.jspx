@@ -344,7 +344,7 @@ GPXParser.prototype.AddWaypointsToMap = function ()
                     If you are happy to do this please <a href="${edit_url}" title="Update Route Outline">click here</a>.<br/>
                 </c:when>
                 <c:otherwise>
-                    This route has assoicated schedule informtion entered and is being reviewed for inclusion in the
+                    This route has associated schedule informtion entered and is being reviewed for inclusion in the
                     Busko Community OneBusAway demonstration site.<br/>
                 </c:otherwise>
             </c:choose>
