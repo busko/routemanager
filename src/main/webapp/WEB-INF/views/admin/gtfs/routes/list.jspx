@@ -22,6 +22,7 @@
             <table:column id="c_org_busko_routemanager_model_transit_gtfs_Route_routeId" property="routeId" z="gjYhNCrM35zBTuQgp5MWO9J/8vI="/>
             <table:column id="c_org_busko_routemanager_model_transit_gtfs_Route_routeShortName" property="routeShortName" z="whX4mqluwFmHnjG7InH4PnrDAnU="/>
             <table:column id="c_org_busko_routemanager_model_transit_gtfs_Route_routeLongName" property="routeLongName" z="Zxk29JKQ6RUTw3FOTxt4R5zGm9E="/>
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_Route_routeDesc" property="routeDesc" render="false" z="user-managed"/>
             <table:column id="c_org_busko_routemanager_model_transit_gtfs_Route_routeColor" property="routeColor" z="Ry44sz5scH4gEcwIwCGnOEiHbww="/>
             <table:column id="c_org_busko_routemanager_model_transit_gtfs_Route_routeBlockId" property="routeBlockId" z="Iuit60fbs/tL8UOekkllVAsuO9k="/>
         </table:table>

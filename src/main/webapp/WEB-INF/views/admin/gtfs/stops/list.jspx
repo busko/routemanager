@@ -21,6 +21,7 @@
         <table:table data="${stops}" id="l_org_busko_routemanager_model_transit_gtfs_Stop" path="/admin/gtfs/stops" z="u6GiZqkwGBWKBXAmvyuRvGn4naw=">
             <table:column id="c_org_busko_routemanager_model_transit_gtfs_Stop_stopId" property="fullStopId" z="user-managed"/>
             <table:column id="c_org_busko_routemanager_model_transit_gtfs_Stop_stopName" property="stopName" z="kRhN46c0oSL8jbFnc3CQH96+wl0="/>
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_Stop_stopDesc" property="stopDesc" render="false" z="user-managed"/>
             <table:column id="c_org_busko_routemanager_model_transit_gtfs_Stop_stopLat" property="stopLat" z="wtj60mNvMN24Lc3cBcrCi2/l2zI="/>
             <table:column id="c_org_busko_routemanager_model_transit_gtfs_Stop_stopLon" property="stopLon" z="cU6wfdbhePN1M+1/am0eCss0ebE="/>
         </table:table>

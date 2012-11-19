@@ -117,3 +117,9 @@ poll now
 help
 web mvc scaffold --class ~.web.admin.gtfs.TripController --backingType ~.model.transit.gtfs.Trip
 poll now
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-19 09:41:54
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-19 09:42:32
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-19 09:43:32
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-19 09:58:30

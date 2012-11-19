@@ -21,7 +21,7 @@
         <field:input field="arrivalTime" id="c_org_busko_routemanager_model_transit_gtfs_StopTime_arrivalTime" required="true" z="S5tC2yH4wUrvsvpyV0RnzadX3j0="/>
         <field:input field="departureTime" id="c_org_busko_routemanager_model_transit_gtfs_StopTime_departureTime" required="true" z="MuS4lGIlUUfAaaq8oBtk6A8q9zM="/>
         <field:input field="stopSequence" id="c_org_busko_routemanager_model_transit_gtfs_StopTime_stopSequence" required="true" z="wKDN48Oa/Ai1FK2pGhWiqrTIgeM="/>
-        <field:select field="trip" id="c_org_busko_routemanager_model_transit_gtfs_StopTime_trip" itemValue="id" items="${trips}" path="/trips" z="xf7v9U/FZ26/lH0zJUNoj0SEoSY="/>
+        <field:select field="trip" id="c_org_busko_routemanager_model_transit_gtfs_StopTime_trip" itemValue="id" items="${trips}" path="/admin/gtfs/trips" z="3lkV636MPY4RQJXVV7QLYdpAtiw="/>
         <field:select field="stop" id="c_org_busko_routemanager_model_transit_gtfs_StopTime_stop" itemValue="id" items="${stops}" path="/admin/gtfs/stops" z="73TwnknoR/IIi9mD2oLdkr9ZBTk="/>
     </form:update>
 </div>

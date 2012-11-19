@@ -23,8 +23,8 @@
             <table:column id="c_org_busko_routemanager_model_transit_gtfs_Trip_tripId" property="tripId" z="qbx/Z6vpyFGy1rXj0uw2STHKeFE="/>
             <table:column id="c_org_busko_routemanager_model_transit_gtfs_Trip_tripHeadsign" property="tripHeadsign" z="KsTXdbFdgc//PbDZGym4F5WLq0o="/>
             <table:column id="c_org_busko_routemanager_model_transit_gtfs_Trip_directionId" property="directionId" z="KOXG822JiJePmUQkfQ+TiU2omi0="/>
-            <!--<table:column id="c_org_busko_routemanager_model_transit_gtfs_Trip_route" property="route" z="bhO24L7ho8XQrw+KAc4avJCLgTQ="/>-->
-            <!--<table:column id="c_org_busko_routemanager_model_transit_gtfs_Trip_calendar" property="calendar" z="mnh0YLkEub7Z7+xJe6296Gz/tdE="/>-->
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_Trip_route" property="route" render="false" z="user-managed"/>
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_Trip_calendar" property="calendar" render="false" z="user-managed"/>
         </table:table>
     </page:list>
 </div>

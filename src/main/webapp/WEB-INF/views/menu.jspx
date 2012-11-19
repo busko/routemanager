@@ -35,8 +35,8 @@
             <menu:item id="i_route_list" messageCode="global_menu_list" url="/admin/gtfs/routes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="u+TMMHozNkQgsMlqx1sqT6Sx1g4="/>
         </menu:category>
         <menu:category id="c_trip" z="h/AX4rednVpnDBieL7TobdFyklk=">
-            <menu:item id="i_trip_new" messageCode="global_menu_new" url="/admin/gtfs/trips?form" z="7dP92Z1DsvZwBMdp6TyvUdaNLXg="/>
-            <menu:item id="i_trip_list" messageCode="global_menu_list" url="/admin/gtfs/trips?page=1&amp;size=${empty param.size ? 10 : param.size}" z="z2x4tZhCFid8505ZwDcTFG1p0QI="/>
+            <menu:item id="i_trip_new" messageCode="global_menu_new" url="/admin/gtfs/trips?form" z="user-managed"/>
+            <menu:item id="i_trip_list" messageCode="global_menu_list" url="/admin/gtfs/trips?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
         </menu:category>
         <menu:category id="c_stop" z="HVFgHKWi7FlLNNtc2tXXHeIZoRw=">
             <menu:item id="i_stop_new" messageCode="global_menu_new" url="/admin/gtfs/stops?form" z="GHSHrloAVkQX6vMw+LQ+FSKKuKw="/>
