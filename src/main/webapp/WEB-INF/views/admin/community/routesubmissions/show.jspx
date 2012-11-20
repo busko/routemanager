@@ -17,11 +17,14 @@
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:spring="http://www.springframework.org/tags" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
+    <spring:url value="/admin/community/routesubmissions/${routesubmission.id}" var="view_url">
+        <spring:param name="view"/>
+    </spring:url>
     <page:show id="ps_org_busko_routemanager_model_transit_community_RouteSubmission" object="${routesubmission}" path="/admin/community/routesubmissions" z="kCdbTOkUvrHmSa9BvWKN6MoOYCA=">
         <field:display field="username" id="s_org_busko_routemanager_model_transit_community_RouteSubmission_username" object="${routesubmission}" z="aji/j00rCBbRsOV2NE9XymVFljE="/>
-        <field:display field="fileContent" id="s_org_busko_routemanager_model_transit_community_RouteSubmission_fileContent" object="${routesubmission}" z="lI3apY4pU9/K0cHJVPzs1U/kc/8="/>
         <field:display date="true" dateTimePattern="${routeSubmission_submitteddatetime_date_format}" field="submittedDateTime" id="s_org_busko_routemanager_model_transit_community_RouteSubmission_submittedDateTime" object="${routesubmission}" z="x9sUkhcIKAIvTonKHlXTrU2tJqc="/>
         <field:display field="route" id="s_org_busko_routemanager_model_transit_community_RouteSubmission_route" object="${routesubmission}" z="M6gD0ZQleQ/GfGB+17dp4VXY16E="/>
-        <field:display field="fileData" id="s_org_busko_routemanager_model_transit_community_RouteSubmission_fileData" object="${routesubmission}" z="9W7cQiESfPxYo2OlYSx96YH9unE="/>
+        <field:display field="fileData" id="s_org_busko_routemanager_model_transit_community_RouteSubmission_fileData" object="${routesubmission}" render="false" z="user-managed"/>
+        <field:display binaryFileName="${routesubmission.route.routeShortName}.xml" binaryPath="${view_url}" field="fileContent" id="s_org_busko_routemanager_model_transit_community_RouteSubmission_fileContent" object="${routesubmission}" z="lI3apY4pU9/K0cHJVPzs1U/kc/8="/>
     </page:show>
 </div>

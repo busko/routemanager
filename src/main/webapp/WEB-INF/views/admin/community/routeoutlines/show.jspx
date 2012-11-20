@@ -331,6 +331,7 @@ GPXParser.prototype.AddWaypointsToMap = function ()
      	onLoad();
     });
 
+
 </script>
         </div>
         <div class="columnblock" style="height: 400px; min-height: 400px; width: 300px; margin-left: 10px;">
@@ -352,11 +353,11 @@ GPXParser.prototype.AddWaypointsToMap = function ()
             <field:display field="username" id="s_org_busko_routemanager_model_transit_community_RouteOutline_username" object="${routeoutline}" z="aD+vEKXaUO0oLtRkoiW7Ol+ocI0="/>
             <field:display field="routeName" id="s_org_busko_routemanager_model_transit_community_RouteOutline_routeName" object="${routeoutline}" z="+M3L7dx4YFA4JvaLyUwxym4HOHw="/>
             <field:display field="routeDescription" id="s_org_busko_routemanager_model_transit_community_RouteOutline_routeDescription" object="${routeoutline}" z="b5kecSL+GMgzVmhlKpW+CQIxFKc="/>
-            <field:display field="fileContent" id="s_org_busko_routemanager_model_transit_community_RouteOutline_fileContent" object="${routeoutline}" render="false" z="user-managed"/>
             <field:display date="true" dateTimePattern="${routeOutline_submitteddatetime_date_format}" field="submittedDateTime" id="s_org_busko_routemanager_model_transit_community_RouteOutline_submittedDateTime" object="${routeoutline}" render="false" z="user-managed"/>
             <field:display field="route" id="s_org_busko_routemanager_model_transit_community_RouteOutline_route" object="${routeoutline}" link="true" linkPath="/admin/gtfs/routes" z="user-managed"/>
             <field:display field="agency" id="s_org_busko_routemanager_model_transit_community_RouteOutline_agency" object="${routeoutline}" z="4OFtaVIdJPgdCOWOSXduIA+El1w="/>
             <field:display field="fileData" id="s_org_busko_routemanager_model_transit_community_RouteOutline_fileData" object="${routeoutline}" render="false" z="user-managed"/>
+            <field:display binaryFileName="${routeoutline.routeName}.xml" binaryPath="${gpx_url}" field="fileContent" id="s_org_busko_routemanager_model_transit_community_RouteOutline_fileContent" object="${routeoutline}" z="user-managed"/>
         </div>
     </page:show>
 </div>
