@@ -20,10 +20,10 @@
     <page:list id="pl_org_busko_routemanager_model_transit_community_RouteSubmission" items="${routesubmissions}" z="t0h05OnqXZz5ab6K2PEJ2uV5nKc=">
         <table:table data="${routesubmissions}" id="l_org_busko_routemanager_model_transit_community_RouteSubmission" path="/admin/community/routesubmissions" z="u04LLFtxMHh3uAo4qT/kXGixGe0=">
             <table:column id="c_org_busko_routemanager_model_transit_community_RouteSubmission_username" property="username" z="+aqESOrahh+f30LdMghZrKv2vJ4="/>
-            <table:column id="c_org_busko_routemanager_model_transit_community_RouteSubmission_fileContent" property="fileContent" z="eeu/Z+qoACjgY49bZBOJnHfl5jI="/>
+            <table:column id="c_org_busko_routemanager_model_transit_community_RouteSubmission_fileContent" property="fileContent" render="false" z="user-managed"/>
             <table:column date="true" dateTimePattern="${routeSubmission_submitteddatetime_date_format}" id="c_org_busko_routemanager_model_transit_community_RouteSubmission_submittedDateTime" property="submittedDateTime" z="EHFsvZFCs7K+WemOilgD4Btazjk="/>
             <table:column id="c_org_busko_routemanager_model_transit_community_RouteSubmission_route" property="route" z="pKSVFEEBFLdyH3Wz7KBfLGMOj7w="/>
-            <table:column id="c_org_busko_routemanager_model_transit_community_RouteSubmission_fileData" property="fileData" z="BOg/+JdOOYRTrzEr+RD782K/oiA="/>
+            <table:column id="c_org_busko_routemanager_model_transit_community_RouteSubmission_fileData" property="fileData" render="false" z="user-managed"/>
         </table:table>
     </page:list>
 </div>
