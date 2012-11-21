@@ -72,6 +72,46 @@ public class TestDataController {
         theBayBus.setAgencyLang("en");
         theBayBus.setUniqueEncoding("30");
         theBayBus.persist();
+
+        Agency NBus = new Agency();
+        NBus.setAgencyId("Nelson Bus");
+        NBus.setAgencyName("Nelson Bus");
+        NBus.setAgencyUrl("http://www.nelsoncitycouncil.co.nz/nbus/");
+        NBus.setAgencyTimezone("Pacific/Auckland");
+        NBus.setAgencyPhone("+643 546 0200");
+        NBus.setAgencyLang("en");
+        NBus.setUniqueEncoding("40");
+        NBus.persist();
+
+        Agency Tranzit = new Agency();
+        Tranzit.setAgencyId("Tranzit");
+        Tranzit.setAgencyName("Tranzit");
+        Tranzit.setAgencyUrl("http://www.newplymouthnz.com/OurDistrict/Transport/NewPlymouthBusServices.htm");
+        Tranzit.setAgencyTimezone("Pacific/Auckland");
+        Tranzit.setAgencyPhone("+646 759 6060");
+        Tranzit.setAgencyLang("en");
+        Tranzit.setUniqueEncoding("50");
+        Tranzit.persist();
+
+        Agency Intercity = new Agency();
+        Intercity.setAgencyId("Intercity");
+        Intercity.setAgencyName("Intercity Coachlines");
+        Intercity.setAgencyUrl("http://www.intercity.co.nz/cheap-north-island-buses/bus-auckland-to-tauranga/");
+        Intercity.setAgencyTimezone("Pacific/Auckland");
+        Intercity.setAgencyPhone("+649 583 5780");
+        Intercity.setAgencyLang("en");
+        Intercity.setUniqueEncoding("60");
+        Intercity.persist();
+
+        Agency Citylink = new Agency();
+        Citylink.setAgencyId("CityLink");
+        Citylink.setAgencyName("CityLink Whāngārei");
+        Citylink.setAgencyUrl("http://www.nrc.govt.nz/transport/getting-around/whangarei-bus-service/");
+        Citylink.setAgencyTimezone("Pacific/Auckland");
+        Citylink.setAgencyPhone("+649 470 1200");
+        Citylink.setAgencyLang("en");
+        Citylink.setUniqueEncoding("70");
+        Citylink.persist();
     }
 
     private void initGtfsCalendarData() {
