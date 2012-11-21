@@ -32,14 +32,14 @@ public class RoutePlotterController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<byte[]> handheldApk(Model uiModel, HttpServletRequest httpServletRequest) throws Exception {
-        InputStream input = getClass().getClassLoader().getResourceAsStream("WTBLogger.apk");
+        InputStream input = getClass().getClassLoader().getResourceAsStream("BuskoLogger.apk");
         int fileSize = input.available();
         byte[] bytes = new byte[fileSize];
         input.read(bytes);
         input.close();
 
         HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.set("Content-Disposition", "attachment;filename=RoutePlotter.apk");
+        responseHeaders.set("Content-Disposition", "attachment;filename=BuskoPlotter.apk");
         responseHeaders.set("Content-Length", Integer.toString(fileSize));
         responseHeaders.set("Content-Type", "application/vnd.android.package-archive");
         return new ResponseEntity<byte[]>(bytes, responseHeaders, HttpStatus.OK);

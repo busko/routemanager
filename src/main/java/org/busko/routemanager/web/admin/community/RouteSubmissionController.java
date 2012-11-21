@@ -55,9 +55,10 @@ public class RouteSubmissionController {
         RouteSubmission routeSubmission = RouteSubmission.findRouteSubmission(id);
 
         HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.set("Content-Disposition", "attachment;filename=" + routeSubmission.getUsername());
+        responseHeaders.set("Content-Disposition", "attachment;filename=" + routeSubmission.getUsername() + ".xml");
         responseHeaders.set("Content-Length", Integer.toString(routeSubmission.getFileContent().length));
-        responseHeaders.set("Content-Type", "text/plain; charset=UTF-8");
+//        responseHeaders.set("Content-Type", "text/plain; charset=UTF-8");
+        responseHeaders.set("Content-Type", "text/xml");
         return new ResponseEntity<byte[]>(routeSubmission.getFileContent(), responseHeaders, HttpStatus.OK);
     }
 }

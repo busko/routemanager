@@ -19,7 +19,7 @@
     <definition extends="default" name="admin/community/routesubmissions/list">
         <put-attribute name="body" value="/WEB-INF/views/admin/community/routesubmissions/list.jspx"/>
     </definition>
-<definition extends="default" name="admin/community/routesubmissions/show">
+<definition extends="gpx" name="admin/community/routesubmissions/show">
         <put-attribute name="body" value="/WEB-INF/views/admin/community/routesubmissions/show.jspx"/>
     </definition>
 <definition extends="default" name="admin/community/routesubmissions/create">

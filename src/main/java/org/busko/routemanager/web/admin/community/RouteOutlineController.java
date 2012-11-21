@@ -155,7 +155,7 @@ public class RouteOutlineController {
         RouteOutline routeOutline = RouteOutline.findRouteOutline(id);
 
         HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.set("Content-Disposition", "attachment;filename=" + routeOutline.getRouteName());
+        responseHeaders.set("Content-Disposition", "attachment;filename=" + routeOutline.getRouteName() + ".xml");
         responseHeaders.set("Content-Length", Integer.toString(routeOutline.getFileContent().length));
         responseHeaders.set("Content-Type", "text/xml");
         return new ResponseEntity<byte[]>(routeOutline.getFileContent(), responseHeaders, HttpStatus.OK);
