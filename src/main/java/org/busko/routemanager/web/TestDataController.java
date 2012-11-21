@@ -23,12 +23,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashSet;
+
 @RequestMapping("/testdata/**")
 @Controller
 public class TestDataController {
 
     @RequestMapping
-    public @ResponseBody String init() throws Exception {
+    public
+    @ResponseBody
+    String init() throws Exception {
         initGtfsData();
         return "Done";
     }
@@ -41,103 +45,116 @@ public class TestDataController {
     }
 
     private void initGtfsAgencyData() {
-        if (Agency.countAgencys() > 0) return;
+//        if (Agency.countAgencys() > 0) return;
 
-        Agency goBus = new Agency();
-        goBus.setAgencyId("GoBus");
-        goBus.setAgencyName("Dunedin City GoBus");
-        goBus.setAgencyUrl("http://www.orc.govt.nz/Information-and-Services/Buses/Bus-Information/");
-        goBus.setAgencyTimezone("Pacific/Auckland");
-        goBus.setAgencyPhone("+643 474 0287");
-        goBus.setAgencyLang("en");
-        goBus.setUniqueEncoding("10");
-        goBus.persist();
+        HashSet<String> agencyIds = new HashSet<String>();
+        for (Agency agency : Agency.findAllAgencys()) {
+            agencyIds.add(agency.getAgencyId());
+        }
 
-        Agency theBlenheimBus = new Agency();
-        theBlenheimBus.setAgencyId("TheBlenheimBus");
-        theBlenheimBus.setAgencyName("The Blenheim Bus");
-        theBlenheimBus.setAgencyUrl("http://www.marlborough.govt.nz/Services/Parking-Roads-and-Transport/Blenheim-Bus-Service.aspx");
-        theBlenheimBus.setAgencyTimezone("Pacific/Auckland");
-        theBlenheimBus.setAgencyPhone("+643 520 7400");
-        theBlenheimBus.setAgencyLang("en");
-        theBlenheimBus.setUniqueEncoding("20");
-        theBlenheimBus.persist();
-
-        Agency theBayBus = new Agency();
-        theBayBus.setAgencyId("theBayBus");
-        theBayBus.setAgencyName("BayBus");
-        theBayBus.setAgencyUrl("http://www.baybus.co.nz/");
-        theBayBus.setAgencyTimezone("Pacific/Auckland");
-        theBayBus.setAgencyPhone("+643 864 4669");
-        theBayBus.setAgencyLang("en");
-        theBayBus.setUniqueEncoding("30");
-        theBayBus.persist();
-
-        Agency NBus = new Agency();
-        NBus.setAgencyId("Nelson Bus");
-        NBus.setAgencyName("Nelson Bus");
-        NBus.setAgencyUrl("http://www.nelsoncitycouncil.co.nz/nbus/");
-        NBus.setAgencyTimezone("Pacific/Auckland");
-        NBus.setAgencyPhone("+643 546 0200");
-        NBus.setAgencyLang("en");
-        NBus.setUniqueEncoding("40");
-        NBus.persist();
-
-        Agency Tranzit = new Agency();
-        Tranzit.setAgencyId("Tranzit");
-        Tranzit.setAgencyName("Tranzit");
-        Tranzit.setAgencyUrl("http://www.newplymouthnz.com/OurDistrict/Transport/NewPlymouthBusServices.htm");
-        Tranzit.setAgencyTimezone("Pacific/Auckland");
-        Tranzit.setAgencyPhone("+646 759 6060");
-        Tranzit.setAgencyLang("en");
-        Tranzit.setUniqueEncoding("50");
-        Tranzit.persist();
-
-        Agency Intercity = new Agency();
-        Intercity.setAgencyId("Intercity");
-        Intercity.setAgencyName("Intercity Coachlines");
-        Intercity.setAgencyUrl("http://www.intercity.co.nz/cheap-north-island-buses/bus-auckland-to-tauranga/");
-        Intercity.setAgencyTimezone("Pacific/Auckland");
-        Intercity.setAgencyPhone("+649 583 5780");
-        Intercity.setAgencyLang("en");
-        Intercity.setUniqueEncoding("60");
-        Intercity.persist();
-
-        Agency Citylink = new Agency();
-        Citylink.setAgencyId("CityLink");
-        Citylink.setAgencyName("CityLink Whāngārei");
-        Citylink.setAgencyUrl("http://www.nrc.govt.nz/transport/getting-around/whangarei-bus-service/");
-        Citylink.setAgencyTimezone("Pacific/Auckland");
-        Citylink.setAgencyPhone("+649 470 1200");
-        Citylink.setAgencyLang("en");
-        Citylink.setUniqueEncoding("70");
-        Citylink.persist();
+        if (!agencyIds.contains("GoBus")) {
+            Agency goBus = new Agency();
+            goBus.setAgencyId("GoBus");
+            goBus.setAgencyName("Dunedin City GoBus");
+            goBus.setAgencyUrl("http://www.orc.govt.nz/Information-and-Services/Buses/Bus-Information/");
+            goBus.setAgencyTimezone("Pacific/Auckland");
+            goBus.setAgencyPhone("+643 474 0287");
+            goBus.setAgencyLang("en");
+            goBus.setUniqueEncoding("10");
+            goBus.persist();
+        }
+        if (!agencyIds.contains("TheBlenheimBus")) {
+            Agency theBlenheimBus = new Agency();
+            theBlenheimBus.setAgencyId("TheBlenheimBus");
+            theBlenheimBus.setAgencyName("The Blenheim Bus");
+            theBlenheimBus.setAgencyUrl("http://www.marlborough.govt.nz/Services/Parking-Roads-and-Transport/Blenheim-Bus-Service.aspx");
+            theBlenheimBus.setAgencyTimezone("Pacific/Auckland");
+            theBlenheimBus.setAgencyPhone("+643 520 7400");
+            theBlenheimBus.setAgencyLang("en");
+            theBlenheimBus.setUniqueEncoding("20");
+            theBlenheimBus.persist();
+        }
+        if (!agencyIds.contains("theBayBus")) {
+            Agency theBayBus = new Agency();
+            theBayBus.setAgencyId("theBayBus");
+            theBayBus.setAgencyName("BayBus");
+            theBayBus.setAgencyUrl("http://www.baybus.co.nz/");
+            theBayBus.setAgencyTimezone("Pacific/Auckland");
+            theBayBus.setAgencyPhone("+643 864 4669");
+            theBayBus.setAgencyLang("en");
+            theBayBus.setUniqueEncoding("30");
+            theBayBus.persist();
+        }
+        if (!agencyIds.contains("NelsonBus")) {
+            Agency NBus = new Agency();
+            NBus.setAgencyId("NelsonBus");
+            NBus.setAgencyName("Nelson Bus");
+            NBus.setAgencyUrl("http://www.nelsoncitycouncil.co.nz/nbus/");
+            NBus.setAgencyTimezone("Pacific/Auckland");
+            NBus.setAgencyPhone("+643 546 0200");
+            NBus.setAgencyLang("en");
+            NBus.setUniqueEncoding("40");
+            NBus.persist();
+        }
+        if (!agencyIds.contains("Tranzit")) {
+            Agency Tranzit = new Agency();
+            Tranzit.setAgencyId("Tranzit");
+            Tranzit.setAgencyName("Tranzit");
+            Tranzit.setAgencyUrl("http://www.newplymouthnz.com/OurDistrict/Transport/NewPlymouthBusServices.htm");
+            Tranzit.setAgencyTimezone("Pacific/Auckland");
+            Tranzit.setAgencyPhone("+646 759 6060");
+            Tranzit.setAgencyLang("en");
+            Tranzit.setUniqueEncoding("50");
+            Tranzit.persist();
+        }
+        if (!agencyIds.contains("Intercity")) {
+            Agency Intercity = new Agency();
+            Intercity.setAgencyId("Intercity");
+            Intercity.setAgencyName("Intercity Coachlines");
+            Intercity.setAgencyUrl("http://www.intercity.co.nz/cheap-north-island-buses/bus-auckland-to-tauranga/");
+            Intercity.setAgencyTimezone("Pacific/Auckland");
+            Intercity.setAgencyPhone("+649 583 5780");
+            Intercity.setAgencyLang("en");
+            Intercity.setUniqueEncoding("60");
+            Intercity.persist();
+        }
+        if (!agencyIds.contains("Citylink")) {
+            Agency Citylink = new Agency();
+            Citylink.setAgencyId("CityLink");
+            Citylink.setAgencyName("CityLink Whāngārei");
+            Citylink.setAgencyUrl("http://www.nrc.govt.nz/transport/getting-around/whangarei-bus-service/");
+            Citylink.setAgencyTimezone("Pacific/Auckland");
+            Citylink.setAgencyPhone("+649 470 1200");
+            Citylink.setAgencyLang("en");
+            Citylink.setUniqueEncoding("70");
+            Citylink.persist();
+        }
     }
 
     private void initGtfsCalendarData() {
         if (Calendar.countCalendars() > 0) return;
 
-        Calendar mon_fri =      new Calendar(Calendar.MON_FRI, true, true, true, true, true, false, false);
+        Calendar mon_fri = new Calendar(Calendar.MON_FRI, true, true, true, true, true, false, false);
         mon_fri.persist();
-        Calendar mon_sat =      new Calendar(Calendar.MON_SAT, true, true, true, true, true, true, false);
+        Calendar mon_sat = new Calendar(Calendar.MON_SAT, true, true, true, true, true, true, false);
         mon_sat.persist();
-        Calendar mon_sun =      new Calendar(Calendar.MON_SUN, true, true, true, true, true, true, true);
+        Calendar mon_sun = new Calendar(Calendar.MON_SUN, true, true, true, true, true, true, true);
         mon_sun.persist();
-        Calendar sat_sun =      new Calendar(Calendar.SAT_SUN, false, false, false, false, false, true, true);
+        Calendar sat_sun = new Calendar(Calendar.SAT_SUN, false, false, false, false, false, true, true);
         sat_sun.persist();
-        Calendar monday =       new Calendar(Calendar.MON, true, false, false, false, false, false, false);
+        Calendar monday = new Calendar(Calendar.MON, true, false, false, false, false, false, false);
         monday.persist();
-        Calendar tuesday =      new Calendar(Calendar.TUE, false, true, false, false, false, false, false);
+        Calendar tuesday = new Calendar(Calendar.TUE, false, true, false, false, false, false, false);
         tuesday.persist();
-        Calendar wednesday =    new Calendar(Calendar.WED, false, false, true, false, false, false, false);
+        Calendar wednesday = new Calendar(Calendar.WED, false, false, true, false, false, false, false);
         wednesday.persist();
-        Calendar thursday =     new Calendar(Calendar.THR, false, false, false, true, false, false, false);
+        Calendar thursday = new Calendar(Calendar.THR, false, false, false, true, false, false, false);
         thursday.persist();
-        Calendar friday =       new Calendar(Calendar.FRI, false, false, false, false, true, false, false);
+        Calendar friday = new Calendar(Calendar.FRI, false, false, false, false, true, false, false);
         friday.persist();
-        Calendar saturday =     new Calendar(Calendar.SAT, false, false, false, false, false, true, false);
+        Calendar saturday = new Calendar(Calendar.SAT, false, false, false, false, false, true, false);
         saturday.persist();
-        Calendar sunday =       new Calendar(Calendar.SUN, false, false, false, false, false, false, true);
+        Calendar sunday = new Calendar(Calendar.SUN, false, false, false, false, false, false, true);
         sunday.persist();
     }
 
