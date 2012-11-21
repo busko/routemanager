@@ -126,3 +126,5 @@ exit
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-21 03:02:25
 finder list --class ~.model.transit.gtfs.Stop
 finder add --finderName findStopsByRoute
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-21 03:35:26

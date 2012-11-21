@@ -120,7 +120,10 @@ public class Route implements GtfsFormatted, Displayable {
         }
 
         // Need to cancel any associated stop links
-        
+        for (Stop stop : Stop.findStopsByRoute(route).getResultList()) {
+            stop.setRoute(null);
+            stop.merge();
+        }
 
         this.entityManager.remove(route);
     }
