@@ -82,7 +82,7 @@ public class TestDataController {
             theBayBus.setAgencyTimezone("Pacific/Auckland");
             theBayBus.setAgencyPhone("+643 864 4669");
             theBayBus.setAgencyLang("en");
-            theBayBus.setUniqueEncoding("30");
+            theBayBus.setUniqueEncoding("21");
             theBayBus.persist();
         }
         if (!agencyIds.contains("NelsonBus")) {
@@ -93,7 +93,7 @@ public class TestDataController {
             NBus.setAgencyTimezone("Pacific/Auckland");
             NBus.setAgencyPhone("+643 546 0200");
             NBus.setAgencyLang("en");
-            NBus.setUniqueEncoding("40");
+            NBus.setUniqueEncoding("22");
             NBus.persist();
         }
         if (!agencyIds.contains("Tranzit")) {
@@ -104,7 +104,7 @@ public class TestDataController {
             Tranzit.setAgencyTimezone("Pacific/Auckland");
             Tranzit.setAgencyPhone("+646 759 6060");
             Tranzit.setAgencyLang("en");
-            Tranzit.setUniqueEncoding("50");
+            Tranzit.setUniqueEncoding("23");
             Tranzit.persist();
         }
         if (!agencyIds.contains("Intercity")) {
@@ -115,18 +115,18 @@ public class TestDataController {
             Intercity.setAgencyTimezone("Pacific/Auckland");
             Intercity.setAgencyPhone("+649 583 5780");
             Intercity.setAgencyLang("en");
-            Intercity.setUniqueEncoding("60");
+            Intercity.setUniqueEncoding("24");
             Intercity.persist();
         }
         if (!agencyIds.contains("Citylink")) {
             Agency Citylink = new Agency();
             Citylink.setAgencyId("CityLink");
-            Citylink.setAgencyName("CityLink Whāngārei");
+            Citylink.setAgencyName("CityLink Whangarei");
             Citylink.setAgencyUrl("http://www.nrc.govt.nz/transport/getting-around/whangarei-bus-service/");
             Citylink.setAgencyTimezone("Pacific/Auckland");
             Citylink.setAgencyPhone("+649 470 1200");
             Citylink.setAgencyLang("en");
-            Citylink.setUniqueEncoding("70");
+            Citylink.setUniqueEncoding("25");
             Citylink.persist();
         }
     }

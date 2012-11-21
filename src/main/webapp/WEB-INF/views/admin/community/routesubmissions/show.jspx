@@ -25,6 +25,6 @@
         <field:display date="true" dateTimePattern="${routeSubmission_submitteddatetime_date_format}" field="submittedDateTime" id="s_org_busko_routemanager_model_transit_community_RouteSubmission_submittedDateTime" object="${routesubmission}" z="x9sUkhcIKAIvTonKHlXTrU2tJqc="/>
         <field:display field="route" id="s_org_busko_routemanager_model_transit_community_RouteSubmission_route" object="${routesubmission}" z="M6gD0ZQleQ/GfGB+17dp4VXY16E="/>
         <field:display field="fileData" id="s_org_busko_routemanager_model_transit_community_RouteSubmission_fileData" object="${routesubmission}" render="false" z="user-managed"/>
-        <field:display binaryFileName="${routesubmission.route.routeShortName}.xml" binaryPath="${view_url}" field="fileContent" id="s_org_busko_routemanager_model_transit_community_RouteSubmission_fileContent" object="${routesubmission}" z="lI3apY4pU9/K0cHJVPzs1U/kc/8="/>
+        <field:display binaryFileName="${routesubmission.route.routeShortName}.xml" binaryPath="${view_url}" field="fileContent" id="s_org_busko_routemanager_model_transit_community_RouteSubmission_fileContent" object="${routesubmission}" z="user-managed"/>
     </page:show>
 </div>

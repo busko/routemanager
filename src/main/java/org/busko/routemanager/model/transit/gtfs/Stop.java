@@ -1,44 +1,20 @@
-/**
- * Copyright (c) 2012 Busko Trust
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
- */
 package org.busko.routemanager.model.transit.gtfs;
 
-import org.busko.routemanager.model.Displayable;
-import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
-import org.springframework.roo.addon.tostring.RooToString;
-
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.HashSet;
-import java.util.Set;
+import org.busko.routemanager.model.Displayable;
+import org.springframework.roo.addon.javabean.RooJavaBean;
+import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
+import org.springframework.roo.addon.tostring.RooToString;
 
-/**
- * Maps to the GTFS stops.txt file. All fields are named to match the CSV headers in the file.
- * Stops should be identified by short numeric codes that can be easily used via the SMS portal.
- *
- * The stopId values will be encoded: Agency / Route / StopId.
- * Within an agency stops that are shared by multiple routes will be encoded: Agency / CommonCode / StopId.
- * Stops used by more than one agency will be encoded: Region / StopId.
- */
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord
+@RooJpaActiveRecord(finders = { "findStopsByRoute" })
 public class Stop implements GtfsFormatted, Displayable {
 
     @NotNull
@@ -59,20 +35,13 @@ public class Stop implements GtfsFormatted, Displayable {
     @NotNull
     @Size(max = 20)
     private String stopLon;
-    
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "stop")
     private Set<StopTime> stopTimes = new HashSet<StopTime>();
 
-    /**
-     * A stop is mapped to an Agency if more than one route uses it. This allows common stops (for an agency) to be
-     * numbered differently.
-     */
     @ManyToOne
     private Agency agency;
 
-    /**
-     * A stop is initially associated with a Route.
-     */
     @ManyToOne
     private Route route;
 
@@ -91,19 +60,11 @@ public class Stop implements GtfsFormatted, Displayable {
         this.explicitStopId = false;
     }
 
-    // TODO zoneId links to fare_rules.txt
-    // TODO location_type links to the idea of 'stations' where more than one route stops
-
     public void addStopTime(StopTime stopTime) {
         stopTime.setStop(this);
         stopTimes.add(stopTime);
     }
 
-    /**
-     * If the explicitStopId is true then the stop number will be [StopId].
-     * If the Agency is associated with a Route then the stop number will be [Agency.UniqueEncoding]00[StopId].
-     * If the Stop is associated with a Route then the stop number will be [Route.Agency.UniqueEncoding][Route.UniqueEncoding][StopId].
-     */
     public String getFullStopId() {
         if (explicitStopId) return stopId;
         String fullStopId = stopId.length() == 1 ? ("0" + stopId) : stopId;
@@ -124,8 +85,7 @@ public class Stop implements GtfsFormatted, Displayable {
 
     @Override
     public String getGtfsData() {
-        return new StringBuilder().append(getFullStopId()).append(',').append(stopName).append(',').append(stopDesc).append(',')
-                                  .append(stopLat).append(',').append(stopLon).append(',').append("").append(',').toString();
+        return new StringBuilder().append(getFullStopId()).append(',').append(stopName).append(',').append(stopDesc).append(',').append(stopLat).append(',').append(stopLon).append(',').append("").append(',').toString();
     }
 
     @Override

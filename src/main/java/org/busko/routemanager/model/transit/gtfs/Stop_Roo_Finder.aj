@@ -19,15 +19,16 @@ package org.busko.routemanager.model.transit.gtfs;
  */
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import org.busko.routemanager.model.transit.gtfs.Calendar;
+import org.busko.routemanager.model.transit.gtfs.Route;
+import org.busko.routemanager.model.transit.gtfs.Stop;
 
-privileged aspect Calendar_Roo_Finder {
+privileged aspect Stop_Roo_Finder {
     
-    public static TypedQuery<Calendar> Calendar.findCalendarsByServiceIdEquals(String serviceId) {
-        if (serviceId == null || serviceId.length() == 0) throw new IllegalArgumentException("The serviceId argument is required");
-        EntityManager em = Calendar.entityManager();
-        TypedQuery<Calendar> q = em.createQuery("SELECT o FROM Calendar AS o WHERE o.serviceId = :serviceId", Calendar.class);
-        q.setParameter("serviceId", serviceId);
+    public static TypedQuery<Stop> Stop.findStopsByRoute(Route route) {
+        if (route == null) throw new IllegalArgumentException("The route argument is required");
+        EntityManager em = Stop.entityManager();
+        TypedQuery<Stop> q = em.createQuery("SELECT o FROM Stop AS o WHERE o.route = :route", Stop.class);
+        q.setParameter("route", route);
         return q;
     }
     

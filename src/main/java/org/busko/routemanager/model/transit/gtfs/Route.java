@@ -119,6 +119,9 @@ public class Route implements GtfsFormatted, Displayable {
             routeOutline.merge();
         }
 
+        // Need to cancel any associated stop links
+        
+
         this.entityManager.remove(route);
     }
 
