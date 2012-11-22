@@ -45,90 +45,52 @@ public class TestDataController {
     }
 
     private void initGtfsAgencyData() {
-//        if (Agency.countAgencys() > 0) return;
-
         HashSet<String> agencyIds = new HashSet<String>();
         for (Agency agency : Agency.findAllAgencys()) {
             agencyIds.add(agency.getAgencyId());
         }
 
         if (!agencyIds.contains("GoBus")) {
-            Agency goBus = new Agency();
-            goBus.setAgencyId("GoBus");
-            goBus.setAgencyName("Dunedin City GoBus");
-            goBus.setAgencyUrl("http://www.orc.govt.nz/Information-and-Services/Buses/Bus-Information/");
-            goBus.setAgencyTimezone("Pacific/Auckland");
-            goBus.setAgencyPhone("+643 474 0287");
-            goBus.setAgencyLang("en");
-            goBus.setUniqueEncoding("10");
-            goBus.persist();
+            Agency agency = new Agency("GoBus", "Dunedin City GoBus", "http://www.orc.govt.nz/Information-and-Services/Buses/Bus-Information/",
+                                       "Pacific/Auckland", "+643 474 0287", "en", "10");
+            agency.persist();
         }
         if (!agencyIds.contains("TheBlenheimBus")) {
-            Agency theBlenheimBus = new Agency();
-            theBlenheimBus.setAgencyId("TheBlenheimBus");
-            theBlenheimBus.setAgencyName("The Blenheim Bus");
-            theBlenheimBus.setAgencyUrl("http://www.marlborough.govt.nz/Services/Parking-Roads-and-Transport/Blenheim-Bus-Service.aspx");
-            theBlenheimBus.setAgencyTimezone("Pacific/Auckland");
-            theBlenheimBus.setAgencyPhone("+643 520 7400");
-            theBlenheimBus.setAgencyLang("en");
-            theBlenheimBus.setUniqueEncoding("20");
-            theBlenheimBus.setLive(true);
-            theBlenheimBus.persist();
+            Agency agency = new Agency("TheBlenheimBus", "The Blenheim Bus", "http://www.marlborough.govt.nz/Services/Parking-Roads-and-Transport/Blenheim-Bus-Service.aspx",
+                                       "Pacific/Auckland", "+643 520 7400", "en", "20");
+            agency.setLive(true);
+            agency.persist();
         }
         if (!agencyIds.contains("theBayBus")) {
-            Agency theBayBus = new Agency();
-            theBayBus.setAgencyId("theBayBus");
-            theBayBus.setAgencyName("BayBus");
-            theBayBus.setAgencyUrl("http://www.baybus.co.nz/");
-            theBayBus.setAgencyTimezone("Pacific/Auckland");
-            theBayBus.setAgencyPhone("+643 864 4669");
-            theBayBus.setAgencyLang("en");
-            theBayBus.setUniqueEncoding("21");
-            theBayBus.persist();
+            Agency agency = new Agency("theBayBus", "BayBus", "http://www.baybus.co.nz/",
+                                       "Pacific/Auckland", "+643 864 4669", "en", "21");
+            agency.persist();
         }
         if (!agencyIds.contains("NelsonBus")) {
-            Agency NBus = new Agency();
-            NBus.setAgencyId("NelsonBus");
-            NBus.setAgencyName("Nelson Bus");
-            NBus.setAgencyUrl("http://www.nelsoncitycouncil.co.nz/nbus/");
-            NBus.setAgencyTimezone("Pacific/Auckland");
-            NBus.setAgencyPhone("+643 546 0200");
-            NBus.setAgencyLang("en");
-            NBus.setUniqueEncoding("22");
-            NBus.persist();
+            Agency agency = new Agency("NelsonBus", "Nelson Bus", "http://www.nelsoncitycouncil.co.nz/nbus/",
+                                       "Pacific/Auckland", "+643 546 0200", "en", "22");
+            agency.persist();
         }
         if (!agencyIds.contains("Tranzit")) {
-            Agency Tranzit = new Agency();
-            Tranzit.setAgencyId("Tranzit");
-            Tranzit.setAgencyName("Tranzit");
-            Tranzit.setAgencyUrl("http://www.newplymouthnz.com/OurDistrict/Transport/NewPlymouthBusServices.htm");
-            Tranzit.setAgencyTimezone("Pacific/Auckland");
-            Tranzit.setAgencyPhone("+646 759 6060");
-            Tranzit.setAgencyLang("en");
-            Tranzit.setUniqueEncoding("23");
-            Tranzit.persist();
+            Agency agency = new Agency("Tranzit", "Tranzit", "http://www.newplymouthnz.com/OurDistrict/Transport/NewPlymouthBusServices.htm",
+                                       "Pacific/Auckland", "+646 759 6060", "en", "23");
+            agency.persist();
         }
-        if (!agencyIds.contains("Intercity")) {
-            Agency Intercity = new Agency();
-            Intercity.setAgencyId("Intercity");
-            Intercity.setAgencyName("Intercity Coachlines");
-            Intercity.setAgencyUrl("http://www.intercity.co.nz/cheap-north-island-buses/bus-auckland-to-tauranga/");
-            Intercity.setAgencyTimezone("Pacific/Auckland");
-            Intercity.setAgencyPhone("+649 583 5780");
-            Intercity.setAgencyLang("en");
-            Intercity.setUniqueEncoding("24");
-            Intercity.persist();
-        }
+//        if (!agencyIds.contains("Intercity")) {
+//            Agency agency = new Agency();
+//            agency.setAgencyId("Intercity");
+//            agency.setAgencyName("Intercity Coachlines");
+//            agency.setAgencyUrl("http://www.intercity.co.nz/cheap-north-island-buses/bus-auckland-to-tauranga/");
+//            agency.setAgencyTimezone("Pacific/Auckland");
+//            agency.setAgencyPhone("+649 583 5780");
+//            agency.setAgencyLang("en");
+//            agency.setUniqueEncoding("24");
+//            agency.persist();
+//        }
         if (!agencyIds.contains("Citylink")) {
-            Agency Citylink = new Agency();
-            Citylink.setAgencyId("CityLink");
-            Citylink.setAgencyName("CityLink Whangarei");
-            Citylink.setAgencyUrl("http://www.nrc.govt.nz/transport/getting-around/whangarei-bus-service/");
-            Citylink.setAgencyTimezone("Pacific/Auckland");
-            Citylink.setAgencyPhone("+649 470 1200");
-            Citylink.setAgencyLang("en");
-            Citylink.setUniqueEncoding("25");
-            Citylink.persist();
+            Agency agency = new Agency("CityLink", "CityLink Whangarei", "http://www.nrc.govt.nz/transport/getting-around/whangarei-bus-service/",
+                                       "Pacific/Auckland", "+649 470 1200", "en", "25");
+            agency.persist();
         }
     }
 

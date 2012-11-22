@@ -22,11 +22,13 @@
 
   <definition name="default" template="/WEB-INF/layouts/default.jspx">
     <put-attribute name="header" value="/WEB-INF/views/header.jspx" />
+    <put-attribute name="menu" value="/WEB-INF/views/navigation.jspx" />
     <put-attribute name="footer" value="/WEB-INF/views/footer.jspx" />
   </definition>
 
   <definition name="gpx" template="/WEB-INF/layouts/gpx.jspx">
     <put-attribute name="header" value="/WEB-INF/views/header.jspx" />
+    <put-attribute name="menu" value="/WEB-INF/views/navigation.jspx" />
     <put-attribute name="footer" value="/WEB-INF/views/footer.jspx" />
   </definition>
 

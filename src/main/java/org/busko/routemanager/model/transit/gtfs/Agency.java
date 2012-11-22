@@ -69,6 +69,20 @@ public class Agency implements GtfsFormatted, Displayable {
     @ManyToOne
     private Region region;
 
+    public Agency() {
+    }
+
+    public Agency(String agencyId, String agencyName, String agencyUrl, String agencyTimezone, String agencyPhone, String agencyLang, String uniqueEncoding) {
+        this.agencyId = agencyId;
+        this.agencyName = agencyName;
+        this.agencyUrl = agencyUrl;
+        this.agencyTimezone = agencyTimezone;
+        this.agencyPhone = agencyPhone;
+        this.agencyLang = agencyLang;
+        this.uniqueEncoding = uniqueEncoding;
+        this.live = false;
+    }
+
     @Override
     public String getGtfsFileName() {
         return "agency.txt";

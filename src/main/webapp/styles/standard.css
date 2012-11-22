@@ -68,6 +68,57 @@ div .twincolumnblock {
 	display:box;
 }
 
+#navigation {
+	background: #eee;
+	position:relative;
+	left:0px;
+	width:100%;
+	margin-right:15px;
+}
+
+#navigation ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#navigation ul li{
+	padding: 0px;
+}
+
+
+#navigation a, #menu h2 {
+	display: block;
+	margin: 0;
+	padding: 2px 6px;
+	color:#FFFFFF;
+}
+
+#navigation h2 {
+	color: #fff;
+	background: #4297d7;
+	text-transform: uppercase;
+	font-weight:bold;
+	font-size: 12px;
+}
+
+#navigation a {
+	color: #666666;
+	background: #efefef;
+	text-decoration: none;
+	padding: 2px 12px;
+}
+
+#navigation a:hover {
+	color: #4297d7;
+	background: #fff;
+}
+
+#main {
+	overflow:hidden;
+	display:box;
+}
+
 #menu {
 	background: #eee;
 	position:relative;
