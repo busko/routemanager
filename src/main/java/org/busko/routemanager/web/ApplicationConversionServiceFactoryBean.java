@@ -17,6 +17,8 @@ package org.busko.routemanager.web;
 
 import org.busko.routemanager.model.transit.gtfs.Agency;
 import org.busko.routemanager.model.transit.gtfs.Route;
+import org.busko.routemanager.model.transit.gtfs.Stop;
+import org.busko.routemanager.model.transit.gtfs.Trip;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.support.FormattingConversionServiceFactoryBean;
 import org.springframework.roo.addon.web.mvc.controller.converter.RooConversionService;
@@ -39,6 +41,22 @@ public class ApplicationConversionServiceFactoryBean extends FormattingConversio
         return new org.springframework.core.convert.converter.Converter<org.busko.routemanager.model.transit.gtfs.Route, java.lang.String>() {
             public String convert(Route route) {
                 return route.getRouteShortName();
+            }
+        };
+    }
+
+    public Converter<Stop, String> getStopToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<org.busko.routemanager.model.transit.gtfs.Stop, java.lang.String>() {
+            public String convert(Stop stop) {
+                return new StringBuilder().append(stop.getFullStopId()).append(' ').append(stop.getStopName()).toString();
+            }
+        };
+    }
+
+    public Converter<Trip, String> getTripToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<org.busko.routemanager.model.transit.gtfs.Trip, java.lang.String>() {
+            public String convert(Trip trip) {
+                return new StringBuilder().append(trip.getServiceId()).append(' ').append(trip.getFullTripId()).toString();
             }
         };
     }

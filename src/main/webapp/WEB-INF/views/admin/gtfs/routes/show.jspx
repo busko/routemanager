@@ -23,7 +23,7 @@
         <field:display field="routeLongName" id="s_org_busko_routemanager_model_transit_gtfs_Route_routeLongName" object="${route}" z="MwdJvAM2MZzv4DFhJn009NKFWsQ="/>
         <field:display field="routeDesc" id="s_org_busko_routemanager_model_transit_gtfs_Route_routeDesc" object="${route}" z="MkOXDXDp+G2QRqkrch4uNex6MVE="/>
         <field:display field="routeColor" id="s_org_busko_routemanager_model_transit_gtfs_Route_routeColor" object="${route}" z="PTN/uCe8A/bsFIAM8sqsgeIC8DM="/>
-        <field:display field="agency" id="s_org_busko_routemanager_model_transit_gtfs_Route_agency" object="${route}" z="fzhiaSDl6FUS7CFQiGNGH5ATlBU="/>
+        <field:display field="agency" id="s_org_busko_routemanager_model_transit_gtfs_Route_agency" object="${route}" link="true" linkPath="/admin/gtfs/agencys" z="user-managed"/>
         <field:display field="routeType" id="s_org_busko_routemanager_model_transit_gtfs_Route_routeType" object="${route}" z="PkDqnSgIj1TdDzS0hil59ZbuzGA="/>
         <field:display field="uniqueEncoding" id="s_org_busko_routemanager_model_transit_gtfs_Route_uniqueEncoding" object="${route}" z="kFM+Kr668GRuAd9a6LNqceXyXXs="/>
         <field:display field="routeBlockId" id="s_org_busko_routemanager_model_transit_gtfs_Route_routeBlockId" object="${route}" z="fyRllpUcw5cpNqJWMzezbXCsytc="/>

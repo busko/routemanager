@@ -19,13 +19,14 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_busko_routemanager_model_transit_gtfs_Trip" modelAttribute="trip" path="/admin/gtfs/trips" render="${empty dependencies}" z="zNHevxDyki3EzT8ZKWhKaP72+I0=">
         <field:input field="serviceId" id="c_org_busko_routemanager_model_transit_gtfs_Trip_serviceId" max="30" required="true" z="W7xDMV1w62tzHH809JGPXdOwKUc="/>
-        <field:input field="tripId" id="c_org_busko_routemanager_model_transit_gtfs_Trip_tripId" max="20" required="true" z="doV9cGY9m0T970HDd9MblIcPOlk="/>
+        <field:input field="tripId" id="c_org_busko_routemanager_model_transit_gtfs_Trip_tripId" max="20" z="2+lMQfRVcLDzEhsR1cmI119iW+c="/>
         <field:textarea field="tripHeadsign" id="c_org_busko_routemanager_model_transit_gtfs_Trip_tripHeadsign" required="true" z="UxcGIxtKnIUk8cZXcirONzS5VTA="/>
         <field:input field="directionId" id="c_org_busko_routemanager_model_transit_gtfs_Trip_directionId" required="true" z="ZsPfOM1njbS+obSok28ZbBu53Ic="/>
         <field:select field="route" id="c_org_busko_routemanager_model_transit_gtfs_Trip_route" itemValue="id" items="${routes}" path="/admin/gtfs/routes" z="bCgiJq13xdqa2vVej3WiKJOGqJo="/>
         <field:select field="calendar" id="c_org_busko_routemanager_model_transit_gtfs_Trip_calendar" itemValue="id" items="${calendars}" path="/calendars" z="pa+lNCVLpVB4j9THS6kxEvnbBG4="/>
         <field:input field="shapeId" id="c_org_busko_routemanager_model_transit_gtfs_Trip_shapeId" z="oaatBoOcqUgu/Mvv15wwdmphaWU="/>
         <field:simple field="stopTimes" id="c_org_busko_routemanager_model_transit_gtfs_Trip_stopTimes" messageCode="entity_reference_not_managed" messageCodeAttribute="Stop Time" z="mJn5Rv/RuujVjNztqb/vHijL9kM="/>
+        <field:checkbox field="explicitTripId" id="c_org_busko_routemanager_model_transit_gtfs_Trip_explicitTripId" z="T5/MKfRYxvrQs2cDn2bBSHO5tQ8="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_busko_routemanager_model_transit_gtfs_Trip" render="${not empty dependencies}" z="Vyt9ewRZuqcdAlct1ejzoyZRuH4="/>
 </div>

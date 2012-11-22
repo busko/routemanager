@@ -49,6 +49,7 @@ public class Stop implements GtfsFormatted, Displayable {
     private Boolean explicitStopId;
 
     public Stop() {
+        this.explicitStopId = false;
     }
 
     public Stop(String stopId, String stopName, String stopDesc, String stopLat, String stopLon) {

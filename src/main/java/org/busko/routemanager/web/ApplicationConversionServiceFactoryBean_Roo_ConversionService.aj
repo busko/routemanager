@@ -99,14 +99,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
-    public Converter<Stop, String> ApplicationConversionServiceFactoryBean.getStopToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.busko.routemanager.model.transit.gtfs.Stop, java.lang.String>() {
-            public String convert(Stop stop) {
-                return new StringBuilder().append(stop.getStopId()).append(' ').append(stop.getStopName()).append(' ').append(stop.getStopDesc()).append(' ').append(stop.getStopLat()).toString();
-            }
-        };
-    }
-    
     public Converter<Long, Stop> ApplicationConversionServiceFactoryBean.getIdToStopConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.Long, org.busko.routemanager.model.transit.gtfs.Stop>() {
             public org.busko.routemanager.model.transit.gtfs.Stop convert(java.lang.Long id) {
@@ -143,14 +135,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         return new org.springframework.core.convert.converter.Converter<java.lang.String, org.busko.routemanager.model.transit.gtfs.StopTime>() {
             public org.busko.routemanager.model.transit.gtfs.StopTime convert(String id) {
                 return getObject().convert(getObject().convert(id, Long.class), StopTime.class);
-            }
-        };
-    }
-    
-    public Converter<Trip, String> ApplicationConversionServiceFactoryBean.getTripToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<org.busko.routemanager.model.transit.gtfs.Trip, java.lang.String>() {
-            public String convert(Trip trip) {
-                return new StringBuilder().append(trip.getServiceId()).append(' ').append(trip.getTripId()).append(' ').append(trip.getTripHeadsign()).append(' ').append(trip.getDirectionId()).toString();
             }
         };
     }

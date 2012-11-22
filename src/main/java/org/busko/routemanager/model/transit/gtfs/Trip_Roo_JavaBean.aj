@@ -89,4 +89,12 @@ privileged aspect Trip_Roo_JavaBean {
         this.stopTimes = stopTimes;
     }
     
+    public Boolean Trip.getExplicitTripId() {
+        return this.explicitTripId;
+    }
+    
+    public void Trip.setExplicitTripId(Boolean explicitTripId) {
+        this.explicitTripId = explicitTripId;
+    }
+    
 }

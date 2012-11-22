@@ -20,7 +20,7 @@
     <page:list id="pl_org_busko_routemanager_model_transit_gtfs_Trip" items="${trips}" z="HNOS1j8WziPAc300m4Clyx8CYRo=">
         <table:table data="${trips}" id="l_org_busko_routemanager_model_transit_gtfs_Trip" path="/admin/gtfs/trips" z="TejtF9qeP1lLeSuwCRudpf0Mpg4=">
             <table:column id="c_org_busko_routemanager_model_transit_gtfs_Trip_serviceId" property="serviceId" z="HQTttE8AsTIfiZnp7R3wgqmcYB4="/>
-            <table:column id="c_org_busko_routemanager_model_transit_gtfs_Trip_tripId" property="tripId" z="qbx/Z6vpyFGy1rXj0uw2STHKeFE="/>
+            <table:column id="c_org_busko_routemanager_model_transit_gtfs_Trip_tripId" property="fullTripId" z="user-managed"/>
             <table:column id="c_org_busko_routemanager_model_transit_gtfs_Trip_tripHeadsign" property="tripHeadsign" z="KsTXdbFdgc//PbDZGym4F5WLq0o="/>
             <table:column id="c_org_busko_routemanager_model_transit_gtfs_Trip_directionId" property="directionId" z="KOXG822JiJePmUQkfQ+TiU2omi0="/>
             <table:column id="c_org_busko_routemanager_model_transit_gtfs_Trip_route" property="route" render="false" z="user-managed"/>

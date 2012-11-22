@@ -40,7 +40,6 @@ public class Trip implements GtfsFormatted, Displayable {
     @Size(max = 30)
     private String serviceId;
 
-    @NotNull
     @Size(max = 20)
     private String tripId;
 
@@ -72,7 +71,11 @@ public class Trip implements GtfsFormatted, Displayable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "trip")
     private Set<StopTime> stopTimes = new HashSet<StopTime>();
 
+    @NotNull
+    private Boolean explicitTripId;
+
     public Trip() {
+        this.explicitTripId = false;
     }
 
     public Trip(String serviceId, String tripId, String tripHeadsign, int directionId) {
@@ -80,6 +83,7 @@ public class Trip implements GtfsFormatted, Displayable {
         this.tripId = tripId;
         this.tripHeadsign = tripHeadsign;
         this.directionId = directionId;
+        this.explicitTripId = false;
     }
 
     public String getRouteId() {
@@ -95,6 +99,24 @@ public class Trip implements GtfsFormatted, Displayable {
     public void addStopTime(StopTime stopTime) {
         stopTime.setTrip(this);
         stopTimes.add(stopTime);
+    }
+
+    /**
+     * If the tripId is to be calculated then the first StopTime is used as the name of the route.
+     *
+     * directionId: 0 - out, 1 - in.
+     */
+    public String getFullTripId() {
+        if (explicitTripId) return tripId;
+        StringBuilder builder = new StringBuilder();
+        if (route != null) {
+            builder.append(route.getRouteId());
+        }
+        builder.append(directionId == 1 ? "in_" : "out_");
+        if (!stopTimes.isEmpty()) {
+            builder.append(stopTimes.iterator().next().getArrivalTime());
+        }
+        return builder.toString();
     }
 
     @Override

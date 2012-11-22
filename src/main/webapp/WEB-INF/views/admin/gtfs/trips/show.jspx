@@ -20,10 +20,12 @@
     <page:show id="ps_org_busko_routemanager_model_transit_gtfs_Trip" object="${trip}" path="/admin/gtfs/trips" z="VdI9WH5uYq84RB4CAOaxL0EKT7s=">
         <field:display field="serviceId" id="s_org_busko_routemanager_model_transit_gtfs_Trip_serviceId" object="${trip}" z="nt2MNnkJ9QUC3D1lX3QkOwSHzJ4="/>
         <field:display field="tripId" id="s_org_busko_routemanager_model_transit_gtfs_Trip_tripId" object="${trip}" z="wZSZToPoILViMgb4Eo49cMrRwH8="/>
+        <field:display field="fullTripId" id="s_org_busko_routemanager_model_transit_gtfs_Trip_fullTripId" object="${trip}" z="user-managed"/>
         <field:display field="tripHeadsign" id="s_org_busko_routemanager_model_transit_gtfs_Trip_tripHeadsign" object="${trip}" z="4ME4Ig3Nw+Kqv4Sg4yuPRElDV/c="/>
         <field:display field="directionId" id="s_org_busko_routemanager_model_transit_gtfs_Trip_directionId" object="${trip}" z="WV19RDKt8/kK9stUcBHmbz9yJhQ="/>
-        <field:display field="route" id="s_org_busko_routemanager_model_transit_gtfs_Trip_route" object="${trip}" z="NsfkCMgosgcy2zzH6Y/Q0Skqcks="/>
-        <field:display field="calendar" id="s_org_busko_routemanager_model_transit_gtfs_Trip_calendar" object="${trip}" z="FMqQxSmYK+m/CH/wFhBkOMgx8WI="/>
+        <field:display field="route" id="s_org_busko_routemanager_model_transit_gtfs_Trip_route" object="${trip}" link="true" linkPath="/admin/gtfs/routes" z="user-managed"/>
+        <field:display field="calendar" id="s_org_busko_routemanager_model_transit_gtfs_Trip_calendar" object="${trip}" render="false" z="user-managed"/>
         <field:display field="shapeId" id="s_org_busko_routemanager_model_transit_gtfs_Trip_shapeId" object="${trip}" z="sLzSZHtIRdWqHipL3j1Ds5mKGOY="/>
+        <field:display field="explicitTripId" id="s_org_busko_routemanager_model_transit_gtfs_Trip_explicitTripId" object="${trip}" z="Q7j4K30Z3iNnIfi9mt8Z1FkLWoY="/>
     </page:show>
 </div>

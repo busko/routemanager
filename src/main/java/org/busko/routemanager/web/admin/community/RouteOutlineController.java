@@ -129,7 +129,7 @@ public class RouteOutlineController {
         // TODO Do we want to do this from the GUI to allow points to be added/moved on the interface?
 
         for (String tripNumber : tripStoptimeMap.keySet()) {
-            Trip trip = new Trip(frequencyMap.get(tripNumber), "XX", routeOutline.getRouteName(), 0);
+            Trip trip = new Trip(frequencyMap.get(tripNumber), null, routeOutline.getRouteName(), 0);
             trip.setCalendar(Calendar.findCalendarsByServiceIdEquals(trip.getServiceId()).getSingleResult());
             route.addTrip(trip);
             trip.persist();
