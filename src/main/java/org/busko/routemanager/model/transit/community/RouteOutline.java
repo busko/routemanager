@@ -38,7 +38,7 @@ public class RouteOutline implements Displayable {
     private String username;
 
     @NotNull
-    @Size(max = 256)
+    @Size(max = 30)
     private String routeName;
 
     @Size(max = 1000)
@@ -67,11 +67,12 @@ public class RouteOutline implements Displayable {
     }
 
     public Route createAndAssociateNewRoute() {
+        String routeId = routeName.length() > 20 ? routeName.substring(0, 20) : routeName;
         route = new Route();
-        route.setRouteId(routeName);
+        route.setRouteId(routeId);
         route.setRouteShortName(routeName);
         route.setRouteType(Route.ROUTETYPE_BUS);
-        route.setUniqueEncoding(routeName);
+        route.setUniqueEncoding(routeId);
         route.setLive(false);
         if (agency != null) {
             route.setAgency(agency);
