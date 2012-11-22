@@ -24,10 +24,10 @@ import org.busko.routemanager.model.transit.gtfs.Agency;
 import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect Agency_Roo_Jpa_ActiveRecord {
-    
+
     @PersistenceContext
     transient EntityManager Agency.entityManager;
-    
+
     public static final EntityManager Agency.entityManager() {
         EntityManager em = new Agency().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");

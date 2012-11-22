@@ -72,6 +72,7 @@ public class TestDataController {
             theBlenheimBus.setAgencyPhone("+643 520 7400");
             theBlenheimBus.setAgencyLang("en");
             theBlenheimBus.setUniqueEncoding("20");
+            theBlenheimBus.setLive(true);
             theBlenheimBus.persist();
         }
         if (!agencyIds.contains("theBayBus")) {

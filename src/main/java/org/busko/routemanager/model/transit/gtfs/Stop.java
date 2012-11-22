@@ -89,6 +89,12 @@ public class Stop implements GtfsFormatted, Displayable {
     }
 
     @Override
+    public boolean isInclude() {
+        if (route != null) return route.isInclude();
+        return true;
+    }
+
+    @Override
     public String getDisplayName() {
         return toString();
     }

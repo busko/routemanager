@@ -118,6 +118,11 @@ public class Calendar implements GtfsFormatted, Displayable {
     }
 
     @Override
+    public boolean isInclude() {
+        return true;
+    }
+
+    @Override
     public String getDisplayName() {
         return toString();
     }

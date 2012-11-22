@@ -34,7 +34,7 @@ import java.util.Set;
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord
-public class Trip implements Displayable {
+public class Trip implements GtfsFormatted, Displayable {
 
     @NotNull
     @Size(max = 30)
@@ -95,6 +95,28 @@ public class Trip implements Displayable {
     public void addStopTime(StopTime stopTime) {
         stopTime.setTrip(this);
         stopTimes.add(stopTime);
+    }
+
+    @Override
+    public String getGtfsFileName() {
+        return "trips.txt";
+    }
+
+    @Override
+    public String getGtfsFileHeader() {
+        return "route_id,service_id,trip_id,trip_headsign,direction_id,block_id,shape_id";
+    }
+
+    @Override
+    public String getGtfsData() {
+        return new StringBuilder().append(getRouteId()).append(',').append(serviceId).append(',').append(tripId).append(',')
+                                  .append(tripHeadsign).append(',').append(directionId).append(",,").append(shapeId).toString();
+    }
+
+    @Override
+    public boolean isInclude() {
+        if (route != null) return route.isInclude();
+        return false;
     }
 
     @Override

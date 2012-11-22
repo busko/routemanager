@@ -89,6 +89,14 @@ privileged aspect Agency_Roo_JavaBean {
         this.uniqueEncoding = uniqueEncoding;
     }
     
+    public Boolean Agency.getLive() {
+        return this.live;
+    }
+    
+    public void Agency.setLive(Boolean live) {
+        this.live = live;
+    }
+    
     public Country Agency.getCountry() {
         return this.country;
     }

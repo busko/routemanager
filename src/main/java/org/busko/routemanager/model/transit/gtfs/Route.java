@@ -146,6 +146,11 @@ public class Route implements GtfsFormatted, Displayable {
     }
 
     @Override
+    public boolean isInclude() {
+        return live;
+    }
+
+    @Override
     public String getDisplayName() {
         return toString();
     }

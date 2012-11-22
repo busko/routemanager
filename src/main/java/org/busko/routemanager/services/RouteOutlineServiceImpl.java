@@ -57,6 +57,12 @@ public class RouteOutlineServiceImpl implements RouteOutlineService {
 
         List stops = Stop.findAllStops();
         createGtfsTxt(directory, stops);
+
+        List trips = Trip.findAllTrips();
+        createGtfsTxt(directory, trips);
+
+        List stopTimes = StopTime.findAllStopTimes();
+        createGtfsTxt(directory, stopTimes);
     }
 
     private void createGtfsTxt(File directory, List gtfsEntities) throws Exception {

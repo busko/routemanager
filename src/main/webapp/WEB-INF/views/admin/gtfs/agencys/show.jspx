@@ -20,11 +20,12 @@
     <page:show id="ps_org_busko_routemanager_model_transit_gtfs_Agency" object="${agency}" path="/admin/gtfs/agencys" z="OVn3dQEivbls5aILuGmUBzFoIkU=">
         <field:display field="agencyId" id="s_org_busko_routemanager_model_transit_gtfs_Agency_agencyId" object="${agency}" z="niiJxlr3e7YUv+SVPerYyGcJLZ4="/>
         <field:display field="agencyName" id="s_org_busko_routemanager_model_transit_gtfs_Agency_agencyName" object="${agency}" z="7LxeT2/3jJmCbtYqwI6jXjadJyc="/>
-        <field:display field="agencyUrl" id="s_org_busko_routemanager_model_transit_gtfs_Agency_agencyUrl" object="${agency}" link="true" z="user-managed"/>
+        <field:display field="agencyUrl" id="s_org_busko_routemanager_model_transit_gtfs_Agency_agencyUrl" link="true" object="${agency}" z="user-managed"/>
         <field:display field="agencyTimezone" id="s_org_busko_routemanager_model_transit_gtfs_Agency_agencyTimezone" object="${agency}" z="HAFOib/iMMEdKP6klpFzqKJy6m0="/>
         <field:display field="agencyPhone" id="s_org_busko_routemanager_model_transit_gtfs_Agency_agencyPhone" object="${agency}" z="dCdJDKW4LzyBxIhOk0txORrVH7E="/>
         <field:display field="agencyLang" id="s_org_busko_routemanager_model_transit_gtfs_Agency_agencyLang" object="${agency}" z="BBOurZPQS9qUfgYjkXV6y6EmQhg="/>
         <field:display field="uniqueEncoding" id="s_org_busko_routemanager_model_transit_gtfs_Agency_uniqueEncoding" object="${agency}" z="3fZmKhSwbPH/Cn/bN7OK2d0cCpM="/>
+        <field:display field="live" id="s_org_busko_routemanager_model_transit_gtfs_Agency_live" object="${agency}" z="sQl3w+AYjAGBeDxrTNsPo8s0j18="/>
         <field:display field="country" id="s_org_busko_routemanager_model_transit_gtfs_Agency_country" object="${agency}" z="cftTkRRt+oX8klQ97Vd+A/irDhU="/>
         <field:display field="region" id="s_org_busko_routemanager_model_transit_gtfs_Agency_region" object="${agency}" z="VEIpDiZZr0o0B3KdIl8BET4psIw="/>
     </page:show>

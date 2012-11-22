@@ -60,6 +60,9 @@ public class Agency implements GtfsFormatted, Displayable {
     @NotNull
     private String uniqueEncoding;
 
+    @NotNull
+    private Boolean live;
+
     @ManyToOne
     private Country country;
 
@@ -80,6 +83,11 @@ public class Agency implements GtfsFormatted, Displayable {
     public String getGtfsData() {
         return new StringBuilder().append(agencyId).append(',').append(agencyName).append(',').append(agencyUrl).append(',')
                                   .append(agencyTimezone).append(',').append(agencyPhone).append(',').append(agencyLang).toString();
+    }
+
+    @Override
+    public boolean isInclude() {
+        return live;
     }
 
     @Override

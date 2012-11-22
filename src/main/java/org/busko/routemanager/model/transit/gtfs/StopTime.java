@@ -33,7 +33,7 @@ import java.util.Date;
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord
-public class StopTime implements Displayable {
+public class StopTime implements GtfsFormatted, Displayable {
 
     @NotNull
     private String arrivalTime;
@@ -74,6 +74,33 @@ public class StopTime implements Displayable {
     public String getStopId() {
         if (stop == null) return null;
         return stop.getStopId();
+    }
+
+    public int getDirectionId() {
+        if (trip == null) return 0;
+        return trip.getDirectionId();
+    }
+
+    @Override
+    public String getGtfsFileName() {
+        return "stop_times.txt";
+    }
+
+    @Override
+    public String getGtfsFileHeader() {
+        return "trip_id,arrival_time,departure_time,stop_id,stop_sequence,stop_headsign,pickup_type,drop_off_type,shape_dist_traveled";
+    }
+
+    @Override
+    public String getGtfsData() {
+        return new StringBuilder().append(getTripId()).append(',').append(arrivalTime).append(',').append(departureTime).append(',')
+                                  .append(getStopId()).append(',').append(getDirectionId()).append(",,").append(stopSequence)
+                                  .append(",,,,").toString();
+    }
+
+    @Override
+    public boolean isInclude() {
+        return stop.isInclude();
     }
 
     @Override

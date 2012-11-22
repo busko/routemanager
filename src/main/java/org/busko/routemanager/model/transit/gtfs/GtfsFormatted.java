@@ -22,4 +22,6 @@ public interface GtfsFormatted {
     public String getGtfsFileHeader();
 
     public String getGtfsData();
+
+    public boolean isInclude();
 }

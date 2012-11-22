@@ -26,6 +26,7 @@
         <field:input field="agencyLang" id="c_org_busko_routemanager_model_transit_gtfs_Agency_agencyLang" max="20" z="EA6ga324MJeBniXWScHy6I0SfRI="/>
         <field:simple field="routes" id="c_org_busko_routemanager_model_transit_gtfs_Agency_routes" messageCode="entity_reference_not_managed" messageCodeAttribute="Route" z="7sXrTDB9bj2k9bVEwG5esU/P5Kc="/>
         <field:input field="uniqueEncoding" id="c_org_busko_routemanager_model_transit_gtfs_Agency_uniqueEncoding" required="true" z="UNDijDoledzv+9b9CI9exoQXlhY="/>
+        <field:checkbox field="live" id="c_org_busko_routemanager_model_transit_gtfs_Agency_live" z="zbG3VX2iM0yMaw6AxuRFlEV1tVc="/>
         <field:select field="country" id="c_org_busko_routemanager_model_transit_gtfs_Agency_country" itemValue="id" items="${countrys}" path="/countrys" z="Nn37+z7pcRT/0S8Ni4+D5xxDZr0="/>
         <field:select field="region" id="c_org_busko_routemanager_model_transit_gtfs_Agency_region" itemValue="id" items="${regions}" path="/regions" z="BBgpHPj0rvQJ3SPktvdd9AcnLU0="/>
     </form:create>
