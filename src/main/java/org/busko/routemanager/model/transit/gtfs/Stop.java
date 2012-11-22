@@ -86,7 +86,8 @@ public class Stop implements GtfsFormatted, Displayable {
 
     @Override
     public String getGtfsData() {
-        return new StringBuilder().append(getFullStopId()).append(',').append(stopName).append(',').append(stopDesc).append(',').append(stopLat).append(',').append(stopLon).append(',').append("").append(',').toString();
+        return new StringBuilder().append(getFullStopId()).append(',').append(formatGtfsString(stopName)).append(',').append(formatGtfsString(stopDesc))
+                                  .append(',').append(stopLat).append(',').append(stopLon).append(',').append("").append(',').toString();
     }
 
     @Override
@@ -98,5 +99,10 @@ public class Stop implements GtfsFormatted, Displayable {
     @Override
     public String getDisplayName() {
         return toString();
+    }
+
+    private String formatGtfsString(String string) {
+        if (string == null) return "";
+        return string.replace(',', ';');
     }
 }

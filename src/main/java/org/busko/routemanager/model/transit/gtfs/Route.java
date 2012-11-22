@@ -142,7 +142,7 @@ public class Route implements GtfsFormatted, Displayable {
     public String getGtfsData() {
         return new StringBuilder().append(routeId).append(',').append(getAgencyId()).append(',').append(routeShortName).append(',')
                                   .append(routeLongName).append(',').append(routeDesc).append(',').append(routeType).append(',')
-                                  .append("").append(',').append(routeColor).append(',').append("").append(',').toString();
+                                  .append("").append(',').append(routeColor).append(',').append("").toString();
     }
 
     @Override

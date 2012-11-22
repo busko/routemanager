@@ -66,19 +66,14 @@ public class StopTime implements GtfsFormatted, Displayable {
         this.stopSequence = stopSequence;
     }
 
-    public String getTripId() {
+    public String getFullTripId() {
         if (trip == null) return null;
-        return trip.getRouteId();
+        return trip.getFullTripId();
     }
 
-    public String getStopId() {
+    public String getFullStopId() {
         if (stop == null) return null;
-        return stop.getStopId();
-    }
-
-    public int getDirectionId() {
-        if (trip == null) return 0;
-        return trip.getDirectionId();
+        return stop.getFullStopId();
     }
 
     @Override
@@ -93,9 +88,8 @@ public class StopTime implements GtfsFormatted, Displayable {
 
     @Override
     public String getGtfsData() {
-        return new StringBuilder().append(getTripId()).append(',').append(arrivalTime).append(',').append(departureTime).append(',')
-                                  .append(getStopId()).append(',').append(getDirectionId()).append(",,").append(stopSequence)
-                                  .append(",,,,").toString();
+        return new StringBuilder().append(getFullTripId()).append(',').append(formatGtfsTime(arrivalTime)).append(',').append(formatGtfsTime(departureTime)).append(',')
+                                  .append(getFullStopId()).append(',').append(stopSequence).append(",,,,").toString();
     }
 
     @Override
@@ -106,5 +100,10 @@ public class StopTime implements GtfsFormatted, Displayable {
     @Override
     public String getDisplayName() {
         return toString();
+    }
+
+    private String formatGtfsTime(String time) {
+        if (time == null) return null;
+        return time.length() == 5 ? time + ":00" : time;
     }
 }

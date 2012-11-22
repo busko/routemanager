@@ -96,7 +96,7 @@ public class Calendar implements GtfsFormatted, Displayable {
         this.saturday = saturday;
         this.sunday = sunday;
         startDate = "20120924";
-        endDate = "20121231";
+        endDate = "20131231";
     }
 
     @Override
@@ -111,10 +111,10 @@ public class Calendar implements GtfsFormatted, Displayable {
 
     @Override
     public String getGtfsData() {
-        return new StringBuilder().append(serviceId).append(',').append(monday).append(',').append(tuesday).append(',')
-                                  .append(wednesday).append(',').append(thursday).append(',').append(friday).append(',')
-                                  .append(saturday).append(',').append(sunday).append(',').append(startDate).append(',')
-                                  .append(endDate).toString();
+        return new StringBuilder().append(serviceId).append(',').append(formatGtfsBoolean(monday)).append(',').append(formatGtfsBoolean(tuesday)).append(',')
+                                  .append(formatGtfsBoolean(wednesday)).append(',').append(formatGtfsBoolean(thursday)).append(',')
+                                  .append(formatGtfsBoolean(friday)).append(',').append(formatGtfsBoolean(saturday)).append(',')
+                                  .append(formatGtfsBoolean(sunday)).append(',').append(startDate).append(',').append(endDate).toString();
     }
 
     @Override
@@ -125,5 +125,9 @@ public class Calendar implements GtfsFormatted, Displayable {
     @Override
     public String getDisplayName() {
         return toString();
+    }
+
+    private String formatGtfsBoolean(boolean bool) {
+        return bool ? "1" : "0";
     }
 }

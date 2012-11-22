@@ -23,6 +23,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 import javax.persistence.CascadeType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.HashSet;
@@ -69,6 +70,7 @@ public class Trip implements GtfsFormatted, Displayable {
     private String shapeId;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "trip")
+    @OrderBy("stopSequence")
     private Set<StopTime> stopTimes = new HashSet<StopTime>();
 
     @NotNull
@@ -131,7 +133,7 @@ public class Trip implements GtfsFormatted, Displayable {
 
     @Override
     public String getGtfsData() {
-        return new StringBuilder().append(getRouteId()).append(',').append(serviceId).append(',').append(tripId).append(',')
+        return new StringBuilder().append(getRouteId()).append(',').append(serviceId).append(',').append(getFullTripId()).append(',')
                                   .append(tripHeadsign).append(',').append(directionId).append(",,").append(shapeId).toString();
     }
 

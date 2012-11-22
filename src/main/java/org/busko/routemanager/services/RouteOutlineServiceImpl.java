@@ -39,6 +39,7 @@ public class RouteOutlineServiceImpl implements RouteOutlineService {
         File directory = new File("D:\\tmp");
 
         List agencys = Agency.findAllAgencys();
+        if (agencys.size() == 0) return;
         createGtfsTxt(directory, agencys);
 
         List calendars = Calendar.findAllCalendars();
@@ -77,7 +78,10 @@ public class RouteOutlineServiceImpl implements RouteOutlineService {
             writer.println(gtfsFormatted.getGtfsFileHeader());
 
             for (Object object : gtfsEntities) {
-                writer.println(((GtfsFormatted)object).getGtfsData());
+                gtfsFormatted = (GtfsFormatted)object;
+                if (gtfsFormatted.isInclude()) {
+                    writer.println((gtfsFormatted).getGtfsData());
+                }
             }
         } finally {
             if (writer != null) { writer.close(); }
