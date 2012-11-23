@@ -100,6 +100,11 @@ public class Agency implements GtfsFormatted, Displayable {
     }
 
     @Override
+    public String getUniqueId() {
+        return getId().toString();
+    }
+
+    @Override
     public boolean isInclude() {
         return live;
     }

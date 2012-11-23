@@ -32,6 +32,6 @@ public class RouteOutlineServiceTest extends HSQLTestBase {
 
     @Test
     public void testGenerateGtfsBundle() throws Exception {
-//        routeOutlineService.generateGtfsBundle();
+        routeOutlineService.generateGtfsBundle();
     }
 }

@@ -22,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -36,7 +37,10 @@ public class RouteOutlineServiceImpl implements RouteOutlineService {
     @Override
     @Transactional
     public void generateGtfsBundle() throws Exception {
-        File directory = new File("D:\\tmp");
+        File directory = new File("\\tmp");
+        if (!directory.exists()) {
+            directory.mkdir();
+        }
 
         List agencys = Agency.findAllAgencys();
         if (agencys.size() == 0) return;
@@ -54,10 +58,11 @@ public class RouteOutlineServiceImpl implements RouteOutlineService {
         createGtfsTxt(directory, routes);
 
         // todo Need to create the shape points at some point
-        createFile(directory, "shapes.txt", "shape_id,shape_pt_lat,shape_pt_lon,shape_pt_sequence");
+        Shape shape = new Shape();
+        createFile(directory, shape.getGtfsFileName(), shape.getGtfsFileHeader());
 
         List stops = Stop.findAllStops();
-        createGtfsTxt(directory, stops);
+        createGtfsTxt(directory, stops, true);
 
         List trips = Trip.findAllTrips();
         createGtfsTxt(directory, trips);
@@ -67,20 +72,36 @@ public class RouteOutlineServiceImpl implements RouteOutlineService {
     }
 
     private void createGtfsTxt(File directory, List gtfsEntities) throws Exception {
+        createGtfsTxt(directory, gtfsEntities, false);
+    }
+
+    private void createGtfsTxt(File directory, List gtfsEntities, boolean unique) throws Exception {
         if (gtfsEntities.isEmpty()) return;
 
         GtfsFormatted gtfsFormatted = (GtfsFormatted)gtfsEntities.get(0);
         File file = createFile(directory, gtfsFormatted.getGtfsFileName(), null);
 
+        HashSet<String> ids = new HashSet<String>();
         PrintWriter writer = null;
         try {
             writer = new PrintWriter(FileUtils.openOutputStream(file));
-            writer.println(gtfsFormatted.getGtfsFileHeader());
+            writer.print(gtfsFormatted.getGtfsFileHeader());
+            writer.print("\n");
 
             for (Object object : gtfsEntities) {
                 gtfsFormatted = (GtfsFormatted)object;
-                if (gtfsFormatted.isInclude()) {
-                    writer.println((gtfsFormatted).getGtfsData());
+                if (unique) {
+                    if (ids.contains(gtfsFormatted.getUniqueId())) {
+                        gtfsFormatted = null;
+                    }
+                    else {
+                        ids.add(gtfsFormatted.getUniqueId());
+                    }
+                }
+                
+                if ((gtfsFormatted != null) && gtfsFormatted.isInclude()) {
+                    writer.print((gtfsFormatted).getGtfsData());
+                    writer.print("\n");
                 }
             }
         } finally {

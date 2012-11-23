@@ -53,6 +53,19 @@ public class TestDataController {
         if (!agencyIds.contains("GoBus")) {
             Agency agency = new Agency("GoBus", "Dunedin City GoBus", "http://www.orc.govt.nz/Information-and-Services/Buses/Bus-Information/",
                                        "Pacific/Auckland", "+643 474 0287", "en", "10");
+            agency.setLive(true);
+            agency.persist();
+        }
+        if (!agencyIds.contains("Connectabus")) {
+            Agency agency = new Agency("Connectabus", "Connectabus", "http://connectabus.com/",
+                                       "Pacific/Auckland", "+643 441 4471", "en", "11");
+            agency.setLive(true);
+            agency.persist();
+        }
+        if (!agencyIds.contains("InvercargillCity")) {
+            Agency agency = new Agency("InvercargillCity", "Invercargill City Council", "http://www.icc.govt.nz/ServicesA-Z/Buses.aspx",
+                                       "Pacific/Auckland", "+643 218 7108", "en", "12");
+            agency.setLive(true);
             agency.persist();
         }
         if (!agencyIds.contains("TheBlenheimBus")) {
@@ -76,6 +89,12 @@ public class TestDataController {
                                        "Pacific/Auckland", "+646 759 6060", "en", "23");
             agency.persist();
         }
+        if (!agencyIds.contains("Citylink")) {
+            Agency agency = new Agency("CityLink", "CityLink Whangarei", "http://www.nrc.govt.nz/transport/getting-around/whangarei-bus-service/",
+                                       "Pacific/Auckland", "+649 470 1200", "en", "24");
+            agency.persist();
+        }
+        
 //        if (!agencyIds.contains("Intercity")) {
 //            Agency agency = new Agency();
 //            agency.setAgencyId("Intercity");
@@ -87,9 +106,9 @@ public class TestDataController {
 //            agency.setUniqueEncoding("24");
 //            agency.persist();
 //        }
-        if (!agencyIds.contains("Citylink")) {
-            Agency agency = new Agency("CityLink", "CityLink Whangarei", "http://www.nrc.govt.nz/transport/getting-around/whangarei-bus-service/",
-                                       "Pacific/Auckland", "+649 470 1200", "en", "25");
+        if (!agencyIds.contains("NakedBus")) {
+            Agency agency = new Agency("NakedBus", "Naked Bus", "http://nakedbus.com/nz/bus/",
+                                       "Pacific/Auckland", "0900 62533", "en", "99");
             agency.persist();
         }
     }

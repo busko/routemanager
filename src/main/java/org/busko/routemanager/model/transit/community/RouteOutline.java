@@ -71,6 +71,7 @@ public class RouteOutline implements Displayable {
         route = new Route();
         route.setRouteId(routeId);
         route.setRouteShortName(routeName);
+        route.setRouteLongName(routeName);
         route.setRouteType(Route.ROUTETYPE_BUS);
         route.setUniqueEncoding(routeId);
         route.setLive(false);

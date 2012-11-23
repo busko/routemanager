@@ -106,7 +106,10 @@ public class Calendar implements GtfsFormatted, Displayable {
 
     @Override
     public String getGtfsFileHeader() {
-        return "service_id,monday,tuesday,wednesday,thursday,friday,saturday,sunday,start_date,end_date";
+        return "service_id,monday,tuesday,wednesday,thursday,friday,saturday,sunday,start_date,end_date\n" +
+               "WEEKDAY,1,1,1,1,1,0,0,20120101,20131231\n" +
+               "FULLW,1,1,1,1,1,1,1,20120101,20131231\n" +
+               "WE,0,0,0,0,0,1,1,20120101,20131231";
     }
 
     @Override
@@ -115,6 +118,11 @@ public class Calendar implements GtfsFormatted, Displayable {
                                   .append(formatGtfsBoolean(wednesday)).append(',').append(formatGtfsBoolean(thursday)).append(',')
                                   .append(formatGtfsBoolean(friday)).append(',').append(formatGtfsBoolean(saturday)).append(',')
                                   .append(formatGtfsBoolean(sunday)).append(',').append(startDate).append(',').append(endDate).toString();
+    }
+
+    @Override
+    public String getUniqueId() {
+        return getId().toString();
     }
 
     @Override
