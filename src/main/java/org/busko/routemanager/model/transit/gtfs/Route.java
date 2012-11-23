@@ -69,6 +69,9 @@ public class Route implements GtfsFormatted, Displayable {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "route")
     private Set<Trip> trips = new HashSet<Trip>();
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "route")
+    private Set<Shape> shapes = new HashSet<Shape>();
 
     /**
      * The uniqiue encoding should be numeric, unique across an agency and ideally 2 digits.

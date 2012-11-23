@@ -127,6 +127,11 @@ public class RouteOutlineController {
 
         // Create the shape from the GPS data
         // TODO Do we want to do this from the GUI to allow points to be added/moved on the interface?
+        GpxToShapeParser gpxToShapeParser = new GpxToShapeParser();
+        gpxToShapeParser.parse(theRouteOutline);
+        for (Shape shape : gpxToShapeParser.getShapes()) {
+            shape.persist();
+        }
 
         for (String tripNumber : tripStoptimeMap.keySet()) {
             Trip trip = new Trip(frequencyMap.get(tripNumber), null, routeOutline.getRouteName(), 0);

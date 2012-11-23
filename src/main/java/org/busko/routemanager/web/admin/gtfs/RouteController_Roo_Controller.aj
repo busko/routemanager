@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.busko.routemanager.model.transit.gtfs.Agency;
 import org.busko.routemanager.model.transit.gtfs.Route;
+import org.busko.routemanager.model.transit.gtfs.Shape;
 import org.busko.routemanager.model.transit.gtfs.Trip;
 import org.busko.routemanager.web.admin.gtfs.RouteController;
 import org.springframework.ui.Model;
@@ -84,12 +85,6 @@ privileged aspect RouteController_Roo_Controller {
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
         return "redirect:/admin/gtfs/routes";
-    }
-    
-    void RouteController.populateEditForm(Model uiModel, Route route) {
-        uiModel.addAttribute("route", route);
-        uiModel.addAttribute("agencys", Agency.findAllAgencys());
-        uiModel.addAttribute("trips", Trip.findAllTrips());
     }
     
     String RouteController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

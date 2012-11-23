@@ -15,13 +15,24 @@
  */
 package org.busko.routemanager.web.admin.gtfs;
 
+import org.busko.routemanager.model.transit.gtfs.Agency;
 import org.busko.routemanager.model.transit.gtfs.Route;
+import org.busko.routemanager.model.transit.gtfs.Shape;
+import org.busko.routemanager.model.transit.gtfs.Trip;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/admin/gtfs/routes")
 @Controller
 @RooWebScaffold(path = "admin/gtfs/routes", formBackingObject = Route.class)
 public class RouteController {
+
+    void populateEditForm(Model uiModel, Route route) {
+        uiModel.addAttribute("route", route);
+        uiModel.addAttribute("agencys", Agency.findAllAgencys());
+//        uiModel.addAttribute("shapes", Shape.findAllShapes());
+//        uiModel.addAttribute("trips", Trip.findAllTrips());
+    }
 }

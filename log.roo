@@ -134,3 +134,22 @@ exit
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-22 09:33:00
 exit
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-22 09:52:03
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-23 01:01:56
+poll now
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-23 01:06:44
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-23 01:07:53
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-23 01:08:17
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-23 01:13:47
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-23 01:14:18
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-23 01:15:08
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-23 01:17:29
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-23 01:22:38
+poll now
+finder list --class ~.model.transit.gtfs.Shape
+finder add --class ~.model.transit.gtfs.Shape --finderName findShapesByRoute
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-23 01:45:03

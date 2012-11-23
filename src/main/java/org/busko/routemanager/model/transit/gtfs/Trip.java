@@ -125,7 +125,7 @@ public class Trip implements GtfsFormatted, Displayable {
     public String getGtfsFileName() {
         return "trips.txt";
     }
-
+/**
     @Override
     public String getGtfsFileHeader() {
         return "route_id,service_id,trip_id,trip_headsign,direction_id,block_id,shape_id\n" +
@@ -544,6 +544,11 @@ public class Trip implements GtfsFormatted, Displayable {
                 "NB-INV-TEA,WEEKDAY,NB-INV-TEAin_0900,Te Anau - Invercargill,1,,SNB-INV-TEAin\n" +
                 "NB-TEA-QT,WEEKDAY,NB-TEA-QTout_0900,Te Anau - Queenstown,0,,SNB-TEA-QTout\n" +
                 "NB-TEA-QT,WEEKDAY,NB-TEA-QTin_1300,Queenstown - Te Anau,1,,SNB-TEA-QTin";
+    }
+*/
+    @Override
+    public String getGtfsFileHeader() {
+        return "route_id,service_id,trip_id,trip_headsign,direction_id,block_id,shape_id";
     }
 
     @Override

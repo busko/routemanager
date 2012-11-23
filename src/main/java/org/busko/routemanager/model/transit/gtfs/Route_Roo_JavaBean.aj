@@ -20,6 +20,7 @@ package org.busko.routemanager.model.transit.gtfs;
 import java.util.Set;
 import org.busko.routemanager.model.transit.gtfs.Agency;
 import org.busko.routemanager.model.transit.gtfs.Route;
+import org.busko.routemanager.model.transit.gtfs.Shape;
 import org.busko.routemanager.model.transit.gtfs.Trip;
 
 privileged aspect Route_Roo_JavaBean {
@@ -94,6 +95,14 @@ privileged aspect Route_Roo_JavaBean {
     
     public void Route.setTrips(Set<Trip> trips) {
         this.trips = trips;
+    }
+    
+    public Set<Shape> Route.getShapes() {
+        return this.shapes;
+    }
+    
+    public void Route.setShapes(Set<Shape> shapes) {
+        this.shapes = shapes;
     }
     
     public String Route.getUniqueEncoding() {

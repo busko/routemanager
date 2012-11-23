@@ -53,4 +53,20 @@ privileged aspect Shape_Roo_JavaBean {
         this.shapePtSequence = shapePtSequence;
     }
     
+    public Route Shape.getRoute() {
+        return this.route;
+    }
+    
+    public void Shape.setRoute(Route route) {
+        this.route = route;
+    }
+    
+    public Boolean Shape.getExplicitShapeId() {
+        return this.explicitShapeId;
+    }
+    
+    public void Shape.setExplicitShapeId(Boolean explicitShapeId) {
+        this.explicitShapeId = explicitShapeId;
+    }
+    
 }

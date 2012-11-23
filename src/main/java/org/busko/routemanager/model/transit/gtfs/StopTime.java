@@ -80,7 +80,7 @@ public class StopTime implements GtfsFormatted, Displayable {
     public String getGtfsFileName() {
         return "stop_times.txt";
     }
-
+/**
     @Override
     public String getGtfsFileHeader() {
         return "trip_id,arrival_time,departure_time,stop_id,stop_sequence,stop_headsign,pickup_type,drop_off_type,shape_dist_traveled\n" +
@@ -4587,6 +4587,10 @@ public class StopTime implements GtfsFormatted, Displayable {
                 "NB-TEA-QTin_1300,14:10:00,14:10:00,990002,2,,,,\n" +
                 "NB-TEA-QTin_1300,14:30:00,14:30:00,990030,3,,,,\n" +
                 "NB-TEA-QTin_1300,15:30:00,15:30:00,990031,4,,,,";
+    }
+*/
+    public String getGtfsFileHeader() {
+        return "trip_id,arrival_time,departure_time,stop_id,stop_sequence,stop_headsign,pickup_type,drop_off_type,shape_dist_traveled";
     }
 
     @Override
