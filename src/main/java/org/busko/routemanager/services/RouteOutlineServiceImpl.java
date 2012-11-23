@@ -88,6 +88,12 @@ public class RouteOutlineServiceImpl implements RouteOutlineService {
             writer.print(gtfsFormatted.getGtfsFileHeader());
             writer.print("\n");
 
+            String testData = NewZealandTestData.getTestData(gtfsFormatted.getGtfsFileName());
+            if (testData != null) {
+                writer.print(testData);
+                writer.print("\n");
+            }
+
             for (Object object : gtfsEntities) {
                 gtfsFormatted = (GtfsFormatted)object;
                 if (unique) {

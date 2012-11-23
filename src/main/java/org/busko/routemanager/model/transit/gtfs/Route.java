@@ -138,23 +138,7 @@ public class Route implements GtfsFormatted, Displayable {
 
     @Override
     public String getGtfsFileHeader() {
-        return "route_id,agency_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_color,route_text_color\n" +
-               "QT6,Connectabus,QT6,Kelvin Heights 6,,3,,,\n" +
-               "QT8,Connectabus,QT8,Arthurs Point 8,,3,,,\n" +
-               "QT9,Connectabus,QT9,Fernhill / Sunshine Bay 9,,3,,,\n" +
-               "QT10,Connectabus,QT10,Arrowtown 10,,3,,,\n" +
-               "QT11,Connectabus,QT11,Queenstown to Frankton then Airport & Remarkables Park 11,,3,,,\n" +
-               "QT12,Connectabus,QT12,Events Centre / Lakes Hayes Estate 12,,3,,,\n" +
-               "GoBus29,GoBus,29,Normanby - St Clair,,3,,,\n" +
-               "GoBus66,GoBus,66,Roslyn/Maori Hill/Prospect Park - University/Octagon,,3,,,\n" +
-               "GoBus67,GoBus,67,University/Octagon - Roslyn/Maori Hill/Prospect Park,,3,,,\n" +
-               "INVFreebieBus,InvercargillCity,INF,Freebie Bus,,3,,,\n" +
-               "INVPurpleCircleSouth,InvercargillCity,INS,Purple Circle South,,3,,,\n" +
-               "INVPurpleCircleNorth,InvercargillCity,INN,Purple Circle North,,3,,,\n" +
-               "NB-INV-QT,NakedBus,NB1,Naked Bus Invercargill-Queenstown,,3,,,\n" +
-               "NB-INV-DUN,NakedBus,NB2,Naked Bus Invercargill-Dunedin,,3,,,\n" +
-               "NB-INV-TEA,NakedBus,NB3,Naked Bus Invercargill-Te Anau,,3,,,\n" +
-               "NB-TEA-QT,NakedBus,NB4,Naked Bus Te Anau-Queenstown,,3,,,";
+        return "route_id,agency_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_color,route_text_color";
     }
 
     @Override

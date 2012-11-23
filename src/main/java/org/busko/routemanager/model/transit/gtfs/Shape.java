@@ -72,7 +72,7 @@ public class Shape implements GtfsFormatted, Displayable {
 
     @Override
     public String getGtfsData() {
-        return new StringBuilder().append(shapeId).append(',').append(shapePtLat).append(',').append(shapePtLon).append(',').append(shapePtSequence).toString();
+        return new StringBuilder().append(getFullShapeId()).append(',').append(shapePtLat).append(',').append(shapePtLon).append(',').append(shapePtSequence).toString();
     }
 
     @Override

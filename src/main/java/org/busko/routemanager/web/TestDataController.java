@@ -109,6 +109,7 @@ public class TestDataController {
         if (!agencyIds.contains("NakedBus")) {
             Agency agency = new Agency("NakedBus", "Naked Bus", "http://nakedbus.com/nz/bus/",
                                        "Pacific/Auckland", "0900 62533", "en", "99");
+            agency.setLive(true);
             agency.persist();
         }
     }

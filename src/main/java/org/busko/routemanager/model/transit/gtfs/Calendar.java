@@ -106,10 +106,7 @@ public class Calendar implements GtfsFormatted, Displayable {
 
     @Override
     public String getGtfsFileHeader() {
-        return "service_id,monday,tuesday,wednesday,thursday,friday,saturday,sunday,start_date,end_date\n" +
-               "WEEKDAY,1,1,1,1,1,0,0,20120101,20131231\n" +
-               "FULLW,1,1,1,1,1,1,1,20120101,20131231\n" +
-               "WE,0,0,0,0,0,1,1,20120101,20131231";
+        return "service_id,monday,tuesday,wednesday,thursday,friday,saturday,sunday,start_date,end_date";
     }
 
     @Override
