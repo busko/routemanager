@@ -1,5 +1,19 @@
 package org.busko.routemanager.model.transit.gtfs;
-
+/**
+ * Copyright (c) 2012 Busko Trust
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -13,9 +27,6 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooJpaActiveRecord
 public class Shape implements GtfsFormatted, Displayable {
 
-    @Size(max = 20)
-    private String shapeId;
-
     @NotNull
     @Size(max = 20)
     private String shapePtLat;
@@ -28,15 +39,7 @@ public class Shape implements GtfsFormatted, Displayable {
     private int shapePtSequence;
 
     @ManyToOne
-    private Route route;
-
-    @NotNull
-    private Boolean explicitShapeId;
-
-    public Shape() {
-        this.shapeId = "S";
-        this.explicitShapeId = false;
-    }
+    private ShapeCollection shapeCollection;
 
     public String getLat() {
         return shapePtLat;
@@ -54,12 +57,6 @@ public class Shape implements GtfsFormatted, Displayable {
         this.shapePtLon = lon;
     }
 
-    public String getFullShapeId() {
-        if (explicitShapeId) return shapeId;
-        if (route != null) return new StringBuilder().append("S").append(route.getRouteId()).toString();
-        return shapeId;
-    }
-
     @Override
     public String getGtfsFileName() {
         return "shapes.txt";
@@ -72,7 +69,8 @@ public class Shape implements GtfsFormatted, Displayable {
 
     @Override
     public String getGtfsData() {
-        return new StringBuilder().append(getFullShapeId()).append(',').append(shapePtLat).append(',').append(shapePtLon).append(',').append(shapePtSequence).toString();
+        return new StringBuilder().append(shapeCollection.getFullShapeId()).append(',')
+                                  .append(shapePtLat).append(',').append(shapePtLon).append(',').append(shapePtSequence).toString();
     }
 
     @Override
@@ -82,7 +80,7 @@ public class Shape implements GtfsFormatted, Displayable {
 
     @Override
     public boolean isInclude() {
-        if (route != null) return route.isInclude();
+        if (shapeCollection.getRoute() != null) return shapeCollection.getRoute().isInclude();
         return false;
     }
 

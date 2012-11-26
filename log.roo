@@ -153,3 +153,10 @@ finder list --class ~.model.transit.gtfs.Shape
 finder add --class ~.model.transit.gtfs.Shape --finderName findShapesByRoute
 exit
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-23 01:45:03
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-26 22:29:50
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-26 22:33:58
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-26 22:34:57
+poll now
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-26 22:45:18

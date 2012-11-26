@@ -17,41 +17,41 @@ package org.busko.routemanager.model.transit.gtfs;
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-import org.busko.routemanager.model.transit.gtfs.Shape;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Version;
 import org.busko.routemanager.model.transit.gtfs.ShapeCollection;
 
-privileged aspect Shape_Roo_JavaBean {
+privileged aspect ShapeCollection_Roo_Jpa_Entity {
     
-    public String Shape.getShapePtLat() {
-        return this.shapePtLat;
+    declare @type: ShapeCollection: @Entity;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long ShapeCollection.id;
+    
+    @Version
+    @Column(name = "version")
+    private Integer ShapeCollection.version;
+    
+    public Long ShapeCollection.getId() {
+        return this.id;
     }
     
-    public void Shape.setShapePtLat(String shapePtLat) {
-        this.shapePtLat = shapePtLat;
+    public void ShapeCollection.setId(Long id) {
+        this.id = id;
     }
     
-    public String Shape.getShapePtLon() {
-        return this.shapePtLon;
+    public Integer ShapeCollection.getVersion() {
+        return this.version;
     }
     
-    public void Shape.setShapePtLon(String shapePtLon) {
-        this.shapePtLon = shapePtLon;
-    }
-    
-    public int Shape.getShapePtSequence() {
-        return this.shapePtSequence;
-    }
-    
-    public void Shape.setShapePtSequence(int shapePtSequence) {
-        this.shapePtSequence = shapePtSequence;
-    }
-    
-    public ShapeCollection Shape.getShapeCollection() {
-        return this.shapeCollection;
-    }
-    
-    public void Shape.setShapeCollection(ShapeCollection shapeCollection) {
-        this.shapeCollection = shapeCollection;
+    public void ShapeCollection.setVersion(Integer version) {
+        this.version = version;
     }
     
 }

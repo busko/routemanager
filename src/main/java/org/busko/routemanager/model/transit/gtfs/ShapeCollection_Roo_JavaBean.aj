@@ -17,41 +17,33 @@ package org.busko.routemanager.model.transit.gtfs;
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-import org.busko.routemanager.model.transit.gtfs.Shape;
+import org.busko.routemanager.model.transit.gtfs.Route;
 import org.busko.routemanager.model.transit.gtfs.ShapeCollection;
 
-privileged aspect Shape_Roo_JavaBean {
+privileged aspect ShapeCollection_Roo_JavaBean {
     
-    public String Shape.getShapePtLat() {
-        return this.shapePtLat;
+    public String ShapeCollection.getShapeId() {
+        return this.shapeId;
     }
     
-    public void Shape.setShapePtLat(String shapePtLat) {
-        this.shapePtLat = shapePtLat;
+    public void ShapeCollection.setShapeId(String shapeId) {
+        this.shapeId = shapeId;
     }
     
-    public String Shape.getShapePtLon() {
-        return this.shapePtLon;
+    public Route ShapeCollection.getRoute() {
+        return this.route;
     }
     
-    public void Shape.setShapePtLon(String shapePtLon) {
-        this.shapePtLon = shapePtLon;
+    public void ShapeCollection.setRoute(Route route) {
+        this.route = route;
     }
     
-    public int Shape.getShapePtSequence() {
-        return this.shapePtSequence;
+    public Boolean ShapeCollection.getExplicitShapeId() {
+        return this.explicitShapeId;
     }
     
-    public void Shape.setShapePtSequence(int shapePtSequence) {
-        this.shapePtSequence = shapePtSequence;
-    }
-    
-    public ShapeCollection Shape.getShapeCollection() {
-        return this.shapeCollection;
-    }
-    
-    public void Shape.setShapeCollection(ShapeCollection shapeCollection) {
-        this.shapeCollection = shapeCollection;
+    public void ShapeCollection.setExplicitShapeId(Boolean explicitShapeId) {
+        this.explicitShapeId = explicitShapeId;
     }
     
 }

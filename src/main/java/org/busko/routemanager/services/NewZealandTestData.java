@@ -22,6 +22,7 @@ import org.busko.routemanager.model.transit.gtfs.Shape;
 public class NewZealandTestData {
 
     public static String getTestData(String className) {
+/*
         if ("calendar.txt".equals(className)) {
             return
                "WEEKDAY,1,1,1,1,1,0,0,20120101,20131231\n" +
@@ -12831,6 +12832,7 @@ public class NewZealandTestData {
                             "NB-TEA-QT,WEEKDAY,NB-TEA-QTout_0900,Te Anau - Queenstown,0,,SNB-TEA-QTout\n" +
                             "NB-TEA-QT,WEEKDAY,NB-TEA-QTin_1300,Queenstown - Te Anau,1,,SNB-TEA-QTin";
         }
+*/
         return null;
     }
 }
