@@ -18,20 +18,19 @@ package org.busko.routemanager.web.admin.community;
 import org.apache.commons.digester.Digester;
 import org.busko.routemanager.model.transit.community.RouteOutline;
 import org.busko.routemanager.model.transit.gtfs.Shape;
-import org.xml.sax.SAXException;
+import org.busko.routemanager.model.transit.gtfs.ShapeCollection;
 
 import java.io.ByteArrayInputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class GpxToShapeParser {
 
-    private ArrayList<Shape> shapes = new ArrayList<Shape>();
+    private ShapeCollection shapeCollection;
 
     public void parse(RouteOutline routeOutline) {
         if ((routeOutline != null) && routeOutline.getFileContent() != null) {
+            shapeCollection = new ShapeCollection();
+            shapeCollection.setRoute(routeOutline.getRoute());
+
             Digester digester = new Digester();
             digester.setValidating( false );
             digester.push(this);
@@ -49,23 +48,18 @@ public class GpxToShapeParser {
                 if (input != null) try { input.close(); } catch (Exception e) {}
             }
         }
-
-        int i = 0;
-        for (Shape shape : shapes) {
-            shape.setShapePtSequence(i++);
-            shape.setRoute(routeOutline.getRoute());
-        }
     }
     
     public void addShape(Shape shape) {
-        shapes.add(shape);
+        if (shapeCollection == null) return;
+        shapeCollection.addShape(shape);
     }
 
-    public ArrayList<Shape> getShapes() {
-        return shapes;
+    public ShapeCollection getShapeCollection() {
+        return shapeCollection;
     }
 
-    public void setShapes(ArrayList<Shape> shapes) {
-        this.shapes = shapes;
+    public void setShapeCollection(ShapeCollection shapeCollection) {
+        this.shapeCollection = shapeCollection;
     }
 }

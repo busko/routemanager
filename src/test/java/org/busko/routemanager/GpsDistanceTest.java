@@ -18,7 +18,7 @@ package org.busko.routemanager;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class GpsDistanceTest extends HSQLTestBase {
+public class GpsDistanceTest {
 
     private static double R = 6378.137;
     private static double D2R = Math.PI / 180;

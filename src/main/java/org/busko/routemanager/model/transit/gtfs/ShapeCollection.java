@@ -18,9 +18,14 @@ import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @RooJavaBean
 @RooToString
@@ -32,6 +37,10 @@ public class ShapeCollection {
 
     @ManyToOne
     private Route route;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "shapeCollection")
+    @OrderBy("shapePtSequence")
+    private Set<Shape> shapes = new HashSet<Shape>();
 
     @NotNull
     private Boolean explicitShapeId;
@@ -39,6 +48,12 @@ public class ShapeCollection {
     public ShapeCollection() {
         this.shapeId = "S";
         this.explicitShapeId = false;
+    }
+
+    public void addShape(Shape shape) {
+        shape.setShapeCollection(this);
+        shape.setShapePtSequence(10000 + shapes.size());
+        shapes.add(shape);
     }
 
     public String getFullShapeId() {

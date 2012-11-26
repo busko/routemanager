@@ -17,7 +17,9 @@ package org.busko.routemanager.model.transit.gtfs;
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+import java.util.Set;
 import org.busko.routemanager.model.transit.gtfs.Route;
+import org.busko.routemanager.model.transit.gtfs.Shape;
 import org.busko.routemanager.model.transit.gtfs.ShapeCollection;
 
 privileged aspect ShapeCollection_Roo_JavaBean {
@@ -36,6 +38,14 @@ privileged aspect ShapeCollection_Roo_JavaBean {
     
     public void ShapeCollection.setRoute(Route route) {
         this.route = route;
+    }
+    
+    public Set<Shape> ShapeCollection.getShapes() {
+        return this.shapes;
+    }
+    
+    public void ShapeCollection.setShapes(Set<Shape> shapes) {
+        this.shapes = shapes;
     }
     
     public Boolean ShapeCollection.getExplicitShapeId() {
