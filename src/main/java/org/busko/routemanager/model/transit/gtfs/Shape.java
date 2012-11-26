@@ -56,7 +56,7 @@ public class Shape implements GtfsFormatted, Displayable {
 
     public String getFullShapeId() {
         if (explicitShapeId) return shapeId;
-        if (route != null) return new StringBuilder().append("S").append(route.getUniqueEncoding()).toString();
+        if (route != null) return new StringBuilder().append("S").append(route.getRouteId()).toString();
         return shapeId;
     }
 

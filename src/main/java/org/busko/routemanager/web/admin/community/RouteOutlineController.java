@@ -137,6 +137,10 @@ public class RouteOutlineController {
             Trip trip = new Trip(frequencyMap.get(tripNumber), null, routeOutline.getRouteName(), 0);
             trip.setCalendar(Calendar.findCalendarsByServiceIdEquals(trip.getServiceId()).getSingleResult());
             route.addTrip(trip);
+// todo Need a Shapes object to store all shape points against - may not be route specific?
+//            if (!gpxToShapeParser.getShapes().isEmpty()) {
+//                trip.setShapeId(gpxToShapeParser.getShapes().get(0).getFullShapeId());
+//            }
             trip.persist();
 
             HashMap<String, String> stoptimeMap = tripStoptimeMap.get(tripNumber);
