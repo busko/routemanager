@@ -22,6 +22,7 @@
         <class>org.busko.routemanager.model.transit.gtfs.Agency</class>
         <class>org.busko.routemanager.model.transit.gtfs.Calendar</class>
         <class>org.busko.routemanager.model.transit.gtfs.Route</class>
+        <class>org.busko.routemanager.model.transit.gtfs.ShapeCollection</class>
         <class>org.busko.routemanager.model.transit.gtfs.Shape</class>
         <class>org.busko.routemanager.model.transit.gtfs.Stop</class>
         <class>org.busko.routemanager.model.transit.gtfs.StopTime</class>
