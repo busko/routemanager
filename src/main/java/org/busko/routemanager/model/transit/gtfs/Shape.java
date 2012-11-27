@@ -25,7 +25,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord
-public class Shape implements GtfsFormatted, Displayable, Comparable {
+public class Shape implements Displayable, Comparable {
 
     @NotNull
     @Size(max = 20)
@@ -55,33 +55,6 @@ public class Shape implements GtfsFormatted, Displayable, Comparable {
 
     public void setLon(String lon) {
         this.shapePtLon = lon;
-    }
-
-    @Override
-    public String getGtfsFileName() {
-        return "shapes.txt";
-    }
-
-    @Override
-    public String getGtfsFileHeader() {
-        return "shape_id,shape_pt_lat,shape_pt_lon,shape_pt_sequence";
-    }
-
-    @Override
-    public String getGtfsData() {
-        return new StringBuilder().append(shapeCollection.getFullShapeId()).append(',')
-                                  .append(shapePtLat).append(',').append(shapePtLon).append(',').append(shapePtSequence).toString();
-    }
-
-    @Override
-    public String getUniqueId() {
-        return getId().toString();
-    }
-
-    @Override
-    public boolean isInclude() {
-        if (shapeCollection.getRoute() != null) return shapeCollection.getRoute().isInclude();
-        return false;
     }
 
     @Override

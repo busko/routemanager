@@ -57,9 +57,8 @@ public class RouteOutlineServiceImpl implements RouteOutlineService {
         List routes = Route.findAllRoutes();
         createGtfsTxt(directory, routes);
 
-        // todo Need to create the shape points at some point
-        List shapes = Shape.findAllShapes();
-        createGtfsTxt(directory, shapes);
+        List shapeCollections = ShapeCollection.findAllShapeCollections();
+        createGtfsTxt(directory, shapeCollections);
 
         List stops = Stop.findAllStops();
         createGtfsTxt(directory, stops, true);
