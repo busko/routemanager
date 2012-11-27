@@ -16,16 +16,12 @@
 package org.busko.routemanager.model.transit.gtfs;
 
 import org.busko.routemanager.model.Displayable;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
 
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 
 /**
  * Maps to the GTFS stop_times.txt file. All fields are named to match the CSV headers in the file.
@@ -89,11 +85,6 @@ public class StopTime implements GtfsFormatted, Displayable {
     public String getGtfsData() {
         return new StringBuilder().append(getFullTripId()).append(',').append(formatGtfsTime(arrivalTime)).append(',').append(formatGtfsTime(departureTime)).append(',')
                                   .append(getFullStopId()).append(',').append(stopSequence).append(",,,,").toString();
-    }
-
-    @Override
-    public String getUniqueId() {
-        return getId().toString();
     }
 
     @Override

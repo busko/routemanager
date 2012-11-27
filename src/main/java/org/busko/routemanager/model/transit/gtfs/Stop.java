@@ -108,11 +108,6 @@ public class Stop implements GtfsFormatted, Displayable {
     }
 
     @Override
-    public String getUniqueId() {
-        return getStopId();
-    }
-
-    @Override
     public boolean isInclude() {
         if (!routes.isEmpty()) {
             for (Route route : routes) {

@@ -144,11 +144,6 @@ public class Trip implements GtfsFormatted, Displayable {
     }
 
     @Override
-    public String getUniqueId() {
-        return getId().toString();
-    }
-
-    @Override
     public boolean isInclude() {
         if (route != null) return route.isInclude();
         return false;

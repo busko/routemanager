@@ -23,7 +23,5 @@ public interface GtfsFormatted {
 
     public String getGtfsData();
 
-    public String getUniqueId();
-
     public boolean isInclude();
 }

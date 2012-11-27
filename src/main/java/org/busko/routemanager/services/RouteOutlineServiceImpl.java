@@ -22,7 +22,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
 import java.io.PrintWriter;
-import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -61,7 +60,7 @@ public class RouteOutlineServiceImpl implements RouteOutlineService {
         createGtfsTxt(directory, shapeCollections);
 
         List stops = Stop.findAllStops();
-        createGtfsTxt(directory, stops, true);
+        createGtfsTxt(directory, stops);
 
         List trips = Trip.findAllTrips();
         createGtfsTxt(directory, trips);
@@ -71,16 +70,11 @@ public class RouteOutlineServiceImpl implements RouteOutlineService {
     }
 
     private void createGtfsTxt(File directory, List gtfsEntities) throws Exception {
-        createGtfsTxt(directory, gtfsEntities, false);
-    }
-
-    private void createGtfsTxt(File directory, List gtfsEntities, boolean unique) throws Exception {
         if (gtfsEntities.isEmpty()) return;
 
         GtfsFormatted gtfsFormatted = (GtfsFormatted)gtfsEntities.get(0);
         File file = createFile(directory, gtfsFormatted.getGtfsFileName(), null);
 
-        HashSet<String> ids = new HashSet<String>();
         PrintWriter writer = null;
         try {
             writer = new PrintWriter(FileUtils.openOutputStream(file));
@@ -94,20 +88,8 @@ public class RouteOutlineServiceImpl implements RouteOutlineService {
             }
 
             for (Object object : gtfsEntities) {
-                gtfsFormatted = (GtfsFormatted)object;
-                if (unique) {
-                    if (ids.contains(gtfsFormatted.getUniqueId())) {
-                        gtfsFormatted = null;
-                    }
-                    else {
-                        ids.add(gtfsFormatted.getUniqueId());
-                    }
-                }
-                
-                if ((gtfsFormatted != null) && gtfsFormatted.isInclude()) {
-                    writer.print((gtfsFormatted).getGtfsData());
-                    writer.print("\n");
-                }
+                writer.print(((GtfsFormatted)object).getGtfsData());
+                writer.print("\n");
             }
         } finally {
             if (writer != null) { writer.close(); }
