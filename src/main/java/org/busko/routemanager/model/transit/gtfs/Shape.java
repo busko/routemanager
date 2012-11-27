@@ -25,7 +25,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord
-public class Shape implements GtfsFormatted, Displayable {
+public class Shape implements GtfsFormatted, Displayable, Comparable {
 
     @NotNull
     @Size(max = 20)
@@ -87,5 +87,12 @@ public class Shape implements GtfsFormatted, Displayable {
     @Override
     public String getDisplayName() {
         return toString();
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (shapePtSequence < ((Shape)o).shapePtSequence) return -1;
+        if (shapePtSequence > ((Shape)o).shapePtSequence) return 1;
+        return 0;
     }
 }

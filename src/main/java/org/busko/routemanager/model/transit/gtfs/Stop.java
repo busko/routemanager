@@ -17,7 +17,7 @@ package org.busko.routemanager.model.transit.gtfs;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -28,7 +28,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord(finders = { "findStopsByRoute" })
+@RooJpaActiveRecord
 public class Stop implements GtfsFormatted, Displayable {
 
     @NotNull
@@ -53,11 +53,8 @@ public class Stop implements GtfsFormatted, Displayable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "stop")
     private Set<StopTime> stopTimes = new HashSet<StopTime>();
 
-    @ManyToOne
-    private Agency agency;
-
-    @ManyToOne
-    private Route route;
+    @ManyToMany
+    private Set<Route> routes = new HashSet<Route>();
 
     @NotNull
     private Boolean explicitStopId;
@@ -83,8 +80,14 @@ public class Stop implements GtfsFormatted, Displayable {
     public String getFullStopId() {
         if (explicitStopId) return stopId;
         String fullStopId = stopId.length() == 1 ? ("0" + stopId) : stopId;
-        if (agency != null) return new StringBuilder().append(agency.getUniqueEncoding()).append("00").append(fullStopId).toString();
-        if (route != null) return new StringBuilder().append(route.getAgency().getUniqueEncoding()).append(route.getUniqueEncoding()).append(fullStopId).toString();
+        if (routes.size() > 1) {
+            // todo Should check agency not different
+            return new StringBuilder().append(routes.iterator().next().getAgency().getUniqueEncoding()).append("00").append(fullStopId).toString();
+        }
+        if (routes.size() == 1) {
+            Route route = routes.iterator().next();
+            return new StringBuilder().append(route.getAgency().getUniqueEncoding()).append(route.getUniqueEncoding()).append(fullStopId).toString();
+        }
         return stopId;
     }
 
@@ -111,7 +114,13 @@ public class Stop implements GtfsFormatted, Displayable {
 
     @Override
     public boolean isInclude() {
-        if (route != null) return route.isInclude();
+        if (!routes.isEmpty()) {
+            for (Route route : routes) {
+                if (route.isInclude()) {
+                    return true;
+                }
+            }
+        }
         return true;
     }
 

@@ -21,6 +21,7 @@ import java.util.Set;
 import org.busko.routemanager.model.transit.gtfs.Agency;
 import org.busko.routemanager.model.transit.gtfs.Route;
 import org.busko.routemanager.model.transit.gtfs.ShapeCollection;
+import org.busko.routemanager.model.transit.gtfs.Stop;
 import org.busko.routemanager.model.transit.gtfs.Trip;
 
 privileged aspect Route_Roo_JavaBean {
@@ -87,6 +88,14 @@ privileged aspect Route_Roo_JavaBean {
     
     public void Route.setRouteType(int routeType) {
         this.routeType = routeType;
+    }
+    
+    public Set<Stop> Route.getStops() {
+        return this.stops;
+    }
+    
+    public void Route.setStops(Set<Stop> stops) {
+        this.stops = stops;
     }
     
     public Set<Trip> Route.getTrips() {

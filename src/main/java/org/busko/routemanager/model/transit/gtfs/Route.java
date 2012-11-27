@@ -16,6 +16,7 @@
 package org.busko.routemanager.model.transit.gtfs;
 
 import javax.persistence.CascadeType;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
@@ -67,6 +68,9 @@ public class Route implements GtfsFormatted, Displayable {
 
     // TODO routeColor and routeTextColor may be supported in OneBusAway and might help differentiate agencies or routes
 
+    @ManyToMany(cascade = CascadeType.REFRESH, mappedBy = "routes")
+    private Set<Stop> stops = new HashSet<Stop>();
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "route")
     private Set<Trip> trips = new HashSet<Trip>();
     
@@ -101,6 +105,16 @@ public class Route implements GtfsFormatted, Displayable {
         return agency.getAgencyId();
     }
 
+    public void addStop(Stop stop) {
+        stop.getRoutes().add(this);
+        stops.add(stop);
+    }
+
+    public void removeStop(Stop stop) {
+        stop.getRoutes().remove(this);
+        stops.remove(stop);
+    }
+
     public void addTrip(Trip trip) {
         trip.setRoute(this);
         trips.add(trip);
@@ -123,10 +137,11 @@ public class Route implements GtfsFormatted, Displayable {
         }
 
         // Need to cancel any associated stop links
-        for (Stop stop : Stop.findStopsByRoute(route).getResultList()) {
-            stop.setRoute(null);
+        for (Stop stop : stops) {
+            stop.getRoutes().remove(this);
             stop.merge();
         }
+        stops.clear();
 
         this.entityManager.remove(route);
     }

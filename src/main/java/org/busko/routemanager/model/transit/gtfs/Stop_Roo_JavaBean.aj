@@ -18,7 +18,6 @@ package org.busko.routemanager.model.transit.gtfs;
  * the License.
  */
 import java.util.Set;
-import org.busko.routemanager.model.transit.gtfs.Agency;
 import org.busko.routemanager.model.transit.gtfs.Route;
 import org.busko.routemanager.model.transit.gtfs.Stop;
 import org.busko.routemanager.model.transit.gtfs.StopTime;
@@ -73,20 +72,12 @@ privileged aspect Stop_Roo_JavaBean {
         this.stopTimes = stopTimes;
     }
     
-    public Agency Stop.getAgency() {
-        return this.agency;
+    public Set<Route> Stop.getRoutes() {
+        return this.routes;
     }
     
-    public void Stop.setAgency(Agency agency) {
-        this.agency = agency;
-    }
-    
-    public Route Stop.getRoute() {
-        return this.route;
-    }
-    
-    public void Stop.setRoute(Route route) {
-        this.route = route;
+    public void Stop.setRoutes(Set<Route> routes) {
+        this.routes = routes;
     }
     
     public Boolean Stop.getExplicitStopId() {

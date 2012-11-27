@@ -25,11 +25,12 @@
         <field:input field="routeColor" id="c_org_busko_routemanager_model_transit_gtfs_Route_routeColor" max="6" z="mNGVTARImIN6FcrD2mXaanKAAV4="/>
         <field:select field="agency" id="c_org_busko_routemanager_model_transit_gtfs_Route_agency" itemValue="id" items="${agencys}" path="/admin/gtfs/agencys" z="tGy7ccnb1z24l84B8Y5YQlLlgz0="/>
         <field:input field="routeType" id="c_org_busko_routemanager_model_transit_gtfs_Route_routeType" required="true" z="pk2d7a3F3k49jk1cDIe+rZzGtiY="/>
+        <field:select field="stops" id="c_org_busko_routemanager_model_transit_gtfs_Route_stops" itemValue="id" items="${stops}" multiple="true" path="/admin/gtfs/stops" z="00bRzK8QCXFY/bCMMz0ZNg3vltI="/>
         <field:simple field="trips" id="c_org_busko_routemanager_model_transit_gtfs_Route_trips" messageCode="entity_reference_not_managed" messageCodeAttribute="Trip" z="+39F65P15P3TltjWeaKsWlPxu3A="/>
+        <field:simple field="shapeCollections" id="c_org_busko_routemanager_model_transit_gtfs_Route_shapeCollections" messageCode="entity_reference_not_managed" messageCodeAttribute="Shape Collection" render="false" z="user-managed"/>
         <field:input field="uniqueEncoding" id="c_org_busko_routemanager_model_transit_gtfs_Route_uniqueEncoding" max="20" required="true" z="eekftDvJM3R7wTs6aE8uUZXq4kM="/>
         <field:input field="routeBlockId" id="c_org_busko_routemanager_model_transit_gtfs_Route_routeBlockId" max="20" z="eHKroM/HBdgkYQr5L7bsSERDVB4="/>
         <field:checkbox field="live" id="c_org_busko_routemanager_model_transit_gtfs_Route_live" z="LfYRyKH4XiLMSrNsO5uQfrjBkbg="/>
-        <field:simple field="shapeCollections" id="c_org_busko_routemanager_model_transit_gtfs_Route_shapeCollections" messageCode="entity_reference_not_managed" messageCodeAttribute="Shape Collection" z="bZ8toxoZsYzThX+bIS7j4Z3TJOo="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_busko_routemanager_model_transit_gtfs_Route" render="${not empty dependencies}" z="UsTBatybkZMqycwXNWL/AnyB4Lg="/>
 </div>

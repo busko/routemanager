@@ -6,7 +6,6 @@ package org.busko.routemanager.web.admin.gtfs;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import org.busko.routemanager.model.transit.gtfs.Agency;
 import org.busko.routemanager.model.transit.gtfs.Route;
 import org.busko.routemanager.model.transit.gtfs.Stop;
 import org.busko.routemanager.model.transit.gtfs.StopTime;
@@ -89,7 +88,6 @@ privileged aspect StopController_Roo_Controller {
     
     void StopController.populateEditForm(Model uiModel, Stop stop) {
         uiModel.addAttribute("stop", stop);
-        uiModel.addAttribute("agencys", Agency.findAllAgencys());
         uiModel.addAttribute("routes", Route.findAllRoutes());
         uiModel.addAttribute("stoptimes", StopTime.findAllStopTimes());
     }

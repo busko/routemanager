@@ -24,8 +24,7 @@
         <field:input field="stopLat" id="c_org_busko_routemanager_model_transit_gtfs_Stop_stopLat" max="20" required="true" z="Bfn9DYagFJFWQl0Z8GXIBM8uuYI="/>
         <field:input field="stopLon" id="c_org_busko_routemanager_model_transit_gtfs_Stop_stopLon" max="20" required="true" z="KUMmGFyA8ZsFibDG7RdvTWicNcI="/>
         <field:simple field="stopTimes" id="c_org_busko_routemanager_model_transit_gtfs_Stop_stopTimes" messageCode="entity_reference_not_managed" messageCodeAttribute="Stop Time" z="z267qhyd4mEQcrFoHnYpTKCOLp0="/>
-        <field:select field="agency" id="c_org_busko_routemanager_model_transit_gtfs_Stop_agency" itemValue="id" items="${agencys}" path="/admin/gtfs/agencys" z="ppPS1yqrHXeeYLGn2PLIEZcI6Fk="/>
-        <field:select field="route" id="c_org_busko_routemanager_model_transit_gtfs_Stop_route" itemValue="id" items="${routes}" path="/admin/gtfs/routes" z="+6gTrAZfoOc2P1HTGK1lwtO4Cb8="/>
+        <field:select field="routes" id="c_org_busko_routemanager_model_transit_gtfs_Stop_routes" itemValue="id" items="${routes}" multiple="true" path="/admin/gtfs/routes" z="N6LepEQ6LQH/FhiA8vyA+oCioEo="/>
         <field:checkbox field="explicitStopId" id="c_org_busko_routemanager_model_transit_gtfs_Stop_explicitStopId" z="ep/X5J80U1CAbK3ow0awhe05md4="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_busko_routemanager_model_transit_gtfs_Stop" render="${not empty dependencies}" z="1Zv1XygCX2U04j8efsJnyQrEmR0="/>

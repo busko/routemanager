@@ -24,8 +24,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 @RooJavaBean
 @RooToString
@@ -40,7 +40,7 @@ public class ShapeCollection {
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "shapeCollection")
     @OrderBy("shapePtSequence")
-    private Set<Shape> shapes = new HashSet<Shape>();
+    private Set<Shape> shapes = new TreeSet<Shape>();
 
     @NotNull
     private Boolean explicitShapeId;

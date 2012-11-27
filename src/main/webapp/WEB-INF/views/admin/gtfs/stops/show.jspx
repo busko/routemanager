@@ -24,8 +24,7 @@
         <field:display field="stopDesc" id="s_org_busko_routemanager_model_transit_gtfs_Stop_stopDesc" object="${stop}" z="EqhFzQZwj4J4uvLa0FCPxlmzc0Y="/>
         <field:display field="stopLat" id="s_org_busko_routemanager_model_transit_gtfs_Stop_stopLat" object="${stop}" z="8HseqF2PWgJkVefJp749p3BUYUA="/>
         <field:display field="stopLon" id="s_org_busko_routemanager_model_transit_gtfs_Stop_stopLon" object="${stop}" z="dUdzc3izw8RnNR01M/SCQ03Wxas="/>
-        <field:display field="agency" id="s_org_busko_routemanager_model_transit_gtfs_Stop_agency" object="${stop}" z="62g8Y070OvLO/zCJ1PpsYa1UNYM="/>
-        <field:display field="route" id="s_org_busko_routemanager_model_transit_gtfs_Stop_route" object="${stop}" link="true" linkPath="/admin/gtfs/routes" z="user-managed"/>
+        <field:display field="routes" id="s_org_busko_routemanager_model_transit_gtfs_Stop_routes" object="${stop}" z="SC56bP8SW943vwEKYICTKB7kaZs="/>
         <field:display field="explicitStopId" id="s_org_busko_routemanager_model_transit_gtfs_Stop_explicitStopId" object="${stop}" z="10q2SuOFG4T9KE258JLUHss7ZTs="/>
     </page:show>
 </div>
