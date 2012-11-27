@@ -67,7 +67,8 @@ public class Trip implements GtfsFormatted, Displayable {
 
     // TODO blockId Idea is used when transfers are allowed between two routes
 
-    private String shapeId;
+    @ManyToOne
+    private ShapeCollection shapeCollection;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "trip")
     @OrderBy("stopSequence")
@@ -97,6 +98,11 @@ public class Trip implements GtfsFormatted, Displayable {
 //        if (calendar == null) return null;
 //        return calendar.getServiceId();
 //    }
+
+    public String getShapeId() {
+        if (shapeCollection == null) return null;
+        return shapeCollection.getFullShapeId();
+    }
 
     public void addStopTime(StopTime stopTime) {
         stopTime.setTrip(this);
@@ -134,7 +140,7 @@ public class Trip implements GtfsFormatted, Displayable {
     @Override
     public String getGtfsData() {
         return new StringBuilder().append(getRouteId()).append(',').append(serviceId).append(',').append(getFullTripId()).append(',')
-                                  .append(tripHeadsign).append(',').append(directionId).append(",,").append(shapeId).toString();
+                                  .append(tripHeadsign).append(',').append(directionId).append(",,").append(getShapeId()).toString();
     }
 
     @Override

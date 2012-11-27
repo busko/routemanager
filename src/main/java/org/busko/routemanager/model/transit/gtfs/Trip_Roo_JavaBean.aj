@@ -20,6 +20,7 @@ package org.busko.routemanager.model.transit.gtfs;
 import java.util.Set;
 import org.busko.routemanager.model.transit.gtfs.Calendar;
 import org.busko.routemanager.model.transit.gtfs.Route;
+import org.busko.routemanager.model.transit.gtfs.ShapeCollection;
 import org.busko.routemanager.model.transit.gtfs.StopTime;
 import org.busko.routemanager.model.transit.gtfs.Trip;
 
@@ -73,12 +74,12 @@ privileged aspect Trip_Roo_JavaBean {
         this.calendar = calendar;
     }
     
-    public String Trip.getShapeId() {
-        return this.shapeId;
+    public ShapeCollection Trip.getShapeCollection() {
+        return this.shapeCollection;
     }
     
-    public void Trip.setShapeId(String shapeId) {
-        this.shapeId = shapeId;
+    public void Trip.setShapeCollection(ShapeCollection shapeCollection) {
+        this.shapeCollection = shapeCollection;
     }
     
     public Set<StopTime> Trip.getStopTimes() {

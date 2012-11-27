@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.busko.routemanager.model.transit.gtfs.Calendar;
 import org.busko.routemanager.model.transit.gtfs.Route;
+import org.busko.routemanager.model.transit.gtfs.ShapeCollection;
 import org.busko.routemanager.model.transit.gtfs.StopTime;
 import org.busko.routemanager.model.transit.gtfs.Trip;
 import org.busko.routemanager.web.admin.gtfs.TripController;
@@ -91,6 +92,7 @@ privileged aspect TripController_Roo_Controller {
         uiModel.addAttribute("trip", trip);
         uiModel.addAttribute("calendars", Calendar.findAllCalendars());
         uiModel.addAttribute("routes", Route.findAllRoutes());
+        uiModel.addAttribute("shapecollections", ShapeCollection.findAllShapeCollections());
         uiModel.addAttribute("stoptimes", StopTime.findAllStopTimes());
     }
     

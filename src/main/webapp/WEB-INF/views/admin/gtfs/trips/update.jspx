@@ -24,8 +24,8 @@
         <field:input field="directionId" id="c_org_busko_routemanager_model_transit_gtfs_Trip_directionId" required="true" z="ZsPfOM1njbS+obSok28ZbBu53Ic="/>
         <field:select field="route" id="c_org_busko_routemanager_model_transit_gtfs_Trip_route" itemValue="id" items="${routes}" path="/admin/gtfs/routes" z="bCgiJq13xdqa2vVej3WiKJOGqJo="/>
         <field:select field="calendar" id="c_org_busko_routemanager_model_transit_gtfs_Trip_calendar" itemValue="id" items="${calendars}" path="/calendars" z="pa+lNCVLpVB4j9THS6kxEvnbBG4="/>
-        <field:input field="shapeId" id="c_org_busko_routemanager_model_transit_gtfs_Trip_shapeId" z="oaatBoOcqUgu/Mvv15wwdmphaWU="/>
         <field:simple field="stopTimes" id="c_org_busko_routemanager_model_transit_gtfs_Trip_stopTimes" messageCode="entity_reference_not_managed" messageCodeAttribute="Stop Time" z="mJn5Rv/RuujVjNztqb/vHijL9kM="/>
+        <field:select field="shapeCollection" id="c_org_busko_routemanager_model_transit_gtfs_Trip_shapeCollection" itemValue="id" items="${shapecollections}" path="/shapecollections" z="+jclNA4q3QZssYewv97pGdVSdl8="/>
         <field:checkbox field="explicitTripId" id="c_org_busko_routemanager_model_transit_gtfs_Trip_explicitTripId" z="T5/MKfRYxvrQs2cDn2bBSHO5tQ8="/>
     </form:update>
 </div>

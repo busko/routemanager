@@ -134,6 +134,7 @@ public class RouteOutlineController {
         for (String tripNumber : tripStoptimeMap.keySet()) {
             Trip trip = new Trip(frequencyMap.get(tripNumber), null, routeOutline.getRouteName(), 0);
             trip.setCalendar(Calendar.findCalendarsByServiceIdEquals(trip.getServiceId()).getSingleResult());
+            trip.setShapeCollection(gpxToShapeParser.getShapeCollection());
             route.addTrip(trip);
             trip.persist();
 
