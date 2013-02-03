@@ -60,6 +60,19 @@ public class GpsDistanceTest {
         Assert.assertTrue(d < 100);
     }
 
+    @Test
+    public void testHaversineBlenheimStop1() {
+        // North Route Stop 1
+        double lat1 = -41.51362178609261;
+        double lon1 = 173.95443;
+        // South Route Stop 1
+        double lat2 = -41.51338354214751;
+        double lon2 = 173.95442214459024;
+
+        double d = calculateHaversineDistance(lat1, lon1, lat2, lon2);
+        Assert.assertTrue(d < 100);
+    }
+
     private double calculateHaversineDistance(double lat1, double lon1, double lat2, double lon2) {
         double dLat = (lat2 - lat1) * D2R;
         double dLon = (lon2 - lon1) * D2R;

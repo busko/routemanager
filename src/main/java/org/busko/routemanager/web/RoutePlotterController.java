@@ -32,7 +32,7 @@ public class RoutePlotterController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<byte[]> handheldApk(Model uiModel, HttpServletRequest httpServletRequest) throws Exception {
-        InputStream input = getClass().getClassLoader().getResourceAsStream("BuskoLogger.apk");
+        InputStream input = getClass().getClassLoader().getResourceAsStream("BuskoPlotter.apk");
         int fileSize = input.available();
         byte[] bytes = new byte[fileSize];
         input.read(bytes);
